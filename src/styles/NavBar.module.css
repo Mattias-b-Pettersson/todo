@@ -1,0 +1,16 @@
+.NavLink:hover {
+    color: #7A26C1;
+    transition: color ease-in-out 0.3s;
+}
+
+.NavLink {
+    font-size: 20px;
+}
+
+.NavLink svg {
+    margin-right: 10px;
+}
+
+.NavBar {
+    border: 1px solid #dadadf;
+}
