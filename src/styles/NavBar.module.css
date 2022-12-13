@@ -5,10 +5,12 @@
 
 .NavLink {
     font-size: 20px;
+    text-decoration: none;
+    color: #504A4B;
 }
 
 .NavLink svg {
-    margin-right: 10px;
+    margin: 0 10px;
 }
 
 .NavBar {

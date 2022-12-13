@@ -8,18 +8,19 @@ import Navbar from 'react-bootstrap/Navbar';
 import styles from "../styles/NavBar.module.css"
 
 import logo from "../assets/logo.png"
+import { NavLink } from 'react-router-dom';
 
 const NavBar = () => {
     return (
         <Navbar bg="light" expand="md" fixed="top" className={styles.NavBar}>
             <Container>
-                <Navbar.Brand href="#home"><Image src={logo} alt="logo" height="55"></Image></Navbar.Brand>
+                <NavLink to="/"><Navbar.Brand><Image src={logo} alt="logo" height="55"></Image></Navbar.Brand></NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link className={styles.NavLink}><FontAwesomeIcon icon={faSquarePlus} />New Todo</Nav.Link>
-                        <Nav.Link className={styles.NavLink}><FontAwesomeIcon icon={faPenToSquare} />Assigned</Nav.Link>
-                        <Nav.Link className={styles.NavLink}><FontAwesomeIcon icon={faUser} />Profile</Nav.Link>
+                        <NavLink exact className={styles.NavLink} to="create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
+                        <NavLink exact className={styles.NavLink} to="assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
+                        <NavLink exact className={styles.NavLink}><FontAwesomeIcon icon={faUser} />Profile</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
