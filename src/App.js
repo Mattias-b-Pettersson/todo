@@ -3,6 +3,7 @@ import { Container } from 'react-bootstrap';
 import './App.css';
 import NavBar from './components/NavBar';
 import { Route, Routes } from "react-router-dom"
+import "./api/axiosDefaults"
 
 
 function App() {
