@@ -18,9 +18,9 @@ const NavBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <NavLink exact className={styles.NavLink} to="create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
-                        <NavLink exact className={styles.NavLink} to="assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
-                        <NavLink exact className={styles.NavLink} to="signup"><FontAwesomeIcon icon={faUser} />Sign up</NavLink>
+                        <NavLink className={styles.NavLink} to="/create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
+                        <NavLink className={styles.NavLink} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
+                        <NavLink className={styles.NavLink} to="/signup"><FontAwesomeIcon icon={faUser} />Sign up</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
