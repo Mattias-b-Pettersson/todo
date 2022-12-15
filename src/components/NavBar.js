@@ -1,19 +1,33 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquarePlus, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import React from 'react'
+import { faSquarePlus, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from 'react';
 import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import styles from "../styles/NavBar.module.css"
-import Avatar from "./Avatar"
-
-import logo from "../assets/logo.png"
-import { NavLink } from 'react-router-dom';
-import { useCurrentUser } from '../contexts/CurrentUserContext';
+import styles from "../styles/NavBar.module.css";
+import Avatar from "./Avatar";
+import axios from 'axios';
+import logo from "../assets/logo.png";
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContext';
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
+    const setCurrentUser = useSetCurrentUser();
+    const navigate = useNavigate();
+
+    const [errors, setErrors] = useState({});
+
+    const handleSignOut = async (event) => {
+        try {
+            await axios.post("/dj-rest-auth/logout/");
+            setCurrentUser(null)
+            navigate("/");
+        } catch (err) {
+            setErrors(err.response?.data);
+        }
+    }
 
     const newTodo = (
         <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
@@ -21,9 +35,10 @@ const NavBar = () => {
 
     const LoggedInIcons = 
         <>  
-            <NavLink className={(navData) => navData.isActive ? styles.Active : `${styles.NavLink} `} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
+            <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
+            <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} onClick={handleSignOut}><FontAwesomeIcon icon={faPenToSquare} />Sign out</NavLink>
             <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.id}`}>
-                <Avatar src={currentUser?.profile_image} text={currentUser?.username}></Avatar>
+                <Avatar src={currentUser?.profile_image} height="45" text={currentUser?.username}/>
             </NavLink>
             
         </>
