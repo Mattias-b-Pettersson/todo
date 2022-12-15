@@ -20,7 +20,7 @@ const NavBar = () => {
                     <Nav className="ml-auto">
                         <NavLink exact className={styles.NavLink} to="create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
                         <NavLink exact className={styles.NavLink} to="assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
-                        <NavLink exact className={styles.NavLink}><FontAwesomeIcon icon={faUser} />Profile</NavLink>
+                        <NavLink exact className={styles.NavLink} to="signup"><FontAwesomeIcon icon={faUser} />Sign up</NavLink>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

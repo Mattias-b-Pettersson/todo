@@ -1,0 +1,29 @@
+.btn {
+    background-color: #7A26C1;
+    border: 0;
+    width: 80%;
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.btn:hover {
+    /* background-color: #af54fa; */
+    background-color: #7A26C1;
+}
+
+button:after {
+  content: '»';
+  font-size: 35px;
+  position: absolute;
+  opacity: 0;  
+  top: -5px;
+  right: -20px;
+  transition: 0.5s cubic-bezier(.2,.8,.32,.89);
+
+}
+
+button:hover:after {
+  opacity: 1;  
+  right: 30px;
+}

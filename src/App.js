@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar';
 import { Route, Routes } from "react-router-dom"
 import "./api/axiosDefaults"
+import SignUpForm from './pages/auth/SignUpForm';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
           <Route exact path="/create" element={<h1>Create</h1>} />
           <Route exact path="/profile" element={<h1>Profile</h1>} />
           <Route exact path="/assigned" element={<h1>Assigned</h1>} />
-          <Route exact path="/signin"  element={<h1>Sign in</h1>} />
+          <Route exact path="/signup"  element={<SignUpForm />} />
           <Route exact path="/signout" element={<h1>Sign out</h1>} />
         </Routes>
       </Container>
