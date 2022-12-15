@@ -21,10 +21,9 @@ const NavBar = () => {
 
     const LoggedInIcons = 
         <>  
-            <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
+            <NavLink className={(navData) => navData.isActive ? styles.Active : `${styles.NavLink} `} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
             <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.id}`}>
-                <Avatar src={currentUser?.profile_image}></Avatar>
-                <span className={`${styles.NavLinkUserName}`}>{currentUser?.username}</span>
+                <Avatar src={currentUser?.profile_image} text={currentUser?.username}></Avatar>
             </NavLink>
             
         </>
@@ -43,7 +42,7 @@ const NavBar = () => {
                 {currentUser && newTodo}
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
-                    <Nav className="ms-auto">
+                    <Nav className="ms-auto d-flex align-items-center">
                         {currentUser ? LoggedInIcons : LoggedOutIcons}
                     </Nav>
                 </Navbar.Collapse>
