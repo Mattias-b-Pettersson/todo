@@ -6,6 +6,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import styles from "../styles/NavBar.module.css"
+import Avatar from "./Avatar"
 
 import logo from "../assets/logo.png"
 import { NavLink } from 'react-router-dom';
@@ -21,7 +22,11 @@ const NavBar = () => {
     const LoggedInIcons = 
         <>  
             <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
-            <span className={`${styles.NavLinkUserName}`}>{currentUser?.username}</span>
+            <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.id}`}>
+                <Avatar src={currentUser?.profile_image}></Avatar>
+                <span className={`${styles.NavLinkUserName}`}>{currentUser?.username}</span>
+            </NavLink>
+            
         </>
     
     const LoggedOutIcons = 
