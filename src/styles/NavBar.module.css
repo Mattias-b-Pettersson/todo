@@ -3,17 +3,22 @@
     transition: color ease-in-out 0.3s;
 }
 
-.NavLink, .NavLinkUserName {
+.Active , .NavLink, .NavLinkUserName {
     font-size: 20px;
     text-decoration: none;
     color: #504A4B;
     margin-right: 20px;
 }
 
-.NavLink svg {
+.Active svg, .NavLink svg {
     margin-right: 5px;
 }
 
 .NavBar {
     border: 1px solid #dadadf;
+}
+
+.Active {
+    color: #7A26C1 !important;
+    border-bottom: 1px solid #7A26C1;
 }

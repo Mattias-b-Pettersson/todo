@@ -13,17 +13,21 @@ import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
+
+    const newTodo = (
+        <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
+    )
+
     const LoggedInIcons = 
         <>  
-                <NavLink className={styles.NavLink} to="/create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>
-                <NavLink className={styles.NavLink} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
-                <span className={`${styles.NavLinkUserName}`}>{currentUser?.username}</span>
+            <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/assigned"><FontAwesomeIcon icon={faPenToSquare} />Assigned</NavLink>
+            <span className={`${styles.NavLinkUserName}`}>{currentUser?.username}</span>
         </>
     
     const LoggedOutIcons = 
         <>
-            <NavLink className={styles.NavLink} to="/signin"><FontAwesomeIcon icon={faUser} />Sign in</NavLink>
-            <NavLink className={styles.NavLink} to="/signup"><FontAwesomeIcon icon={faUserPlus} />Sign up</NavLink>
+            <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/signin"><FontAwesomeIcon icon={faUser} />Sign in</NavLink>
+            <NavLink className={(navData) => navData.isActive ? styles.Active : styles.NavLink} to="/signup"><FontAwesomeIcon icon={faUserPlus} />Sign up</NavLink>
         </>
     
 
@@ -31,9 +35,10 @@ const NavBar = () => {
         <Navbar bg="light" expand="md" fixed="top" className={styles.NavBar}>
             <Container>
                 <NavLink to="/"><Navbar.Brand><Image src={logo} alt="logo" height="55"></Image></Navbar.Brand></NavLink>
+                {currentUser && newTodo}
                 <Navbar.Toggle aria-controls="navbar-nav" />
                 <Navbar.Collapse id="navbar-nav">
-                    <Nav>
+                    <Nav className="ms-auto">
                         {currentUser ? LoggedInIcons : LoggedOutIcons}
                     </Nav>
                 </Navbar.Collapse>
