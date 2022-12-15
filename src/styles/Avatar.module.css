@@ -3,3 +3,14 @@
     margin: 0 0 0 0;
     object-fit: cover;
 }
+
+.AvatarSpan {
+    font-size: 20px;
+    text-decoration: none;
+    color: #504A4B;
+}
+
+.AvatarSpan:hover {
+    color: #7A26C1;
+    transition: color ease-in-out 0.3s;
+}
