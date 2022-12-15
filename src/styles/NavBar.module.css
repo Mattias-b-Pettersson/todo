@@ -3,14 +3,15 @@
     transition: color ease-in-out 0.3s;
 }
 
-.NavLink {
+.NavLink, .NavLinkUserName {
     font-size: 20px;
     text-decoration: none;
     color: #504A4B;
+    margin-right: 20px;
 }
 
 .NavLink svg {
-    margin: 0 10px;
+    margin-right: 5px;
 }
 
 .NavBar {
