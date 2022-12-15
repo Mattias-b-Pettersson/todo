@@ -123,7 +123,7 @@ const SignUpForm = () => {
                                 <p>Already have an account? Sign in <Link to="/signin">here</Link></p>
 
                                 <Button
-                                    className={`${styles.Btn}`}
+                                    className={`${styles.submitBtn}`}
                                     type="submit" 
                                 >
                                     Sign up
