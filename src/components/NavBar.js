@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus, faPenToSquare, faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons'
-import React, { useContext } from 'react'
+import React from 'react'
 import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -9,11 +9,10 @@ import styles from "../styles/NavBar.module.css"
 
 import logo from "../assets/logo.png"
 import { NavLink } from 'react-router-dom';
-import { CurrentUserContext, SetCurrentUserContext } from '../App';
+import { useCurrentUser } from '../contexts/CurrentUserContext';
 
 const NavBar = () => {
-    const setCurrentUser = useContext(SetCurrentUserContext)
-    const currentUser = useContext(CurrentUserContext)
+    const currentUser = useCurrentUser();
     const LoggedInIcons = 
         <>  
                 <NavLink className={styles.NavLink} to="/create"><FontAwesomeIcon icon={faSquarePlus} />New Todo</NavLink>

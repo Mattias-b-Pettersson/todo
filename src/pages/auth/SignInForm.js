@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { Alert, Card, Col, Container, Row } from 'react-bootstrap';
 import SignInImage from "../../assets/SignInImage.jpg"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,11 +8,10 @@ import { faUser, faLock } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../styles/SignUpInForm.module.css"
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { CurrentUserContext, SetCurrentUserContext } from '../../App';
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 
 const SignInForm = () => {
-    const setCurrentUser = useContext(SetCurrentUserContext)
-    const currentUser = useContext(CurrentUserContext)
+    const setCurrentUser = useSetCurrentUser();
     const [signInData, setSignInData] = useState({
         username: "",
         password: "",

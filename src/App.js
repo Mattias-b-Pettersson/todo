@@ -30,8 +30,6 @@ function App() {
   }, [])
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
-      <SetCurrentUserContext.Provider value={setCurrentUser}>
         <div className="App">
         <NavBar />
           <Container className="Main">
@@ -46,8 +44,6 @@ function App() {
             </Routes>
           </Container>
         </div>
-      </SetCurrentUserContext.Provider>
-    </CurrentUserContext.Provider>
   );
 }
 
