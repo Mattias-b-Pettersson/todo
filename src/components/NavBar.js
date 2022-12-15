@@ -37,7 +37,7 @@ const NavBar = () => {
     
 
     return (
-        <Navbar bg="light" expand="md" fixed="top" className={styles.NavBar}>
+        <Navbar bg="white" expand="md" fixed="top" className={styles.NavBar}>
             <Container>
                 <NavLink to="/"><Navbar.Brand><Image src={logo} alt="logo" height="55"></Image></Navbar.Brand></NavLink>
                 {currentUser && newTodo}
