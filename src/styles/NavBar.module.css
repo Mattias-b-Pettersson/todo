@@ -22,3 +22,9 @@
     color: #7A26C1 !important;
     border-bottom: 1px solid #7A26C1;
 }
+
+.ToggleButton {
+    font-size: 20px;
+    text-decoration: none;
+    color: #504A4B;
+}
