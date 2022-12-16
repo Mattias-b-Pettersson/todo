@@ -63,6 +63,30 @@ export const TodoCreateForm = () => {
   };
 
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData();
+    formData.append("title", title)
+    formData.append("content", content)
+    formData.append("priority", priority)
+    formData.append("assigned", assigned)
+    formData.append("state", state)
+    if (fileInput.current.value) {
+      formData.append("file", fileInput.current.files[0])
+    }
+
+
+    for (const value of formData.values()) {
+      console.log(value);
+    }
+
+    try {
+      await axiosReq.post("/todos/", formData)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
 
 
