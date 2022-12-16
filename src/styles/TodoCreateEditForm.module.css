@@ -1,0 +1,27 @@
+.submitBtn {
+    background-color: #7A26C1;
+    border: 0;
+    width: 200px;
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+}
+
+.submitBtn:hover {
+    background-color: #7A26C1;
+}
+
+.submitBtn:after {
+    content: '»';
+    font-size: 35px;
+    position: absolute;
+    opacity: 0;
+    top: -8px;
+    right: -20px;
+    transition: 0.5s cubic-bezier(.2, .8, .32, .89);
+}
+
+.submitBtn:hover:after {
+    opacity: 1;
+    right: 30px;
+}
