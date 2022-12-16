@@ -34,7 +34,33 @@ export const TodoCreateForm = () => {
     handleMount()
   }, []);
 
+  const handleChangeFile = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(file);
+      setTodoData({
+        ...todoData,
+        file: URL.createObjectURL(event.target.files[0])
+      })
+    }
+    console.log(fileInput.current.value)
+  }
 
+  const handleChange = (event) => {
+    if (event.target.name === "assigned") {
+      setTodoData({
+        ...todoData,
+        [event.target.name]: [].slice.call(event.target.selectedOptions).map(item => item.value)
+
+      })
+      console.log(assigned)
+    } else {
+      setTodoData({
+        ...todoData,
+        [event.target.name]: event.target.value,
+
+      });
+    }
+  };
 
 
 
