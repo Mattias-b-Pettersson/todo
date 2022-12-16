@@ -8,6 +8,7 @@ import SignUpForm from './pages/auth/SignUpForm';
 import SignInForm from './pages/auth/SignInForm';
 import { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { TodoCreateForm } from './pages/todo/TodoCreateForm';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -35,7 +36,7 @@ function App() {
           <Container className="Main">
             <Routes>
               <Route exact="true" path="/" element={<h1>Home Page</h1>} />
-              <Route path="/create" element={<h1>Create</h1>} />
+              <Route path="/create" element={<TodoCreateForm />} />
               <Route path="/profile" element={<h1>Profile</h1>} />
               <Route path="/assigned" element={<h1>Assigned</h1>} />
               <Route path="/signup" element={<SignUpForm />} />
