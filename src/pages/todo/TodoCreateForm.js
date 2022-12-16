@@ -42,7 +42,6 @@ export const TodoCreateForm = () => {
         file: URL.createObjectURL(event.target.files[0])
       })
     }
-    console.log(fileInput.current.value)
   }
 
   const handleChange = (event) => {
@@ -72,6 +71,9 @@ export const TodoCreateForm = () => {
     formData.append("priority", priority)
     formData.append("assigned", assigned)
     formData.append("state", state)
+
+    // Needs this if statement, or else the API wont accept an empty file field. 
+    // So if no file is selected the form wont send any data for file.
     if (fileInput.current.value) {
       formData.append("file", fileInput.current.files[0])
     }
@@ -198,6 +200,7 @@ export const TodoCreateForm = () => {
                   </Col>
                   <Col md={8} className="pt-1">
 
+                    {/* Loads every user and outputs it in a option. When it isn't loaded, display a loading gif */}
                     {loaded ? (
                       <Form.Control as="select" name="assigned" multiple onChange={handleChange} required>
 
