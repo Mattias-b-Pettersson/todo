@@ -17,7 +17,7 @@ export const TodoCreateForm = () => {
     file: "",
   })
 
-  const { title, content, priority, state } = todoData;
+  const { title, content, priority, state, assigned, file } = todoData;
 
   const fileInput = useRef(null)
 
@@ -63,7 +63,7 @@ export const TodoCreateForm = () => {
   };
 
 
-  const handleSubmit = async (event) => {
+ const handleSubmit = async (event) => {
     event.preventDefault();
 
     const formData = new FormData();
@@ -75,8 +75,8 @@ export const TodoCreateForm = () => {
     if (fileInput.current.value) {
       formData.append("file", fileInput.current.files[0])
     }
-
-
+    
+   
     for (const value of formData.values()) {
       console.log(value);
     }
