@@ -5,6 +5,7 @@ import Avatar from "../../components/Avatar"
 import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Todo.module.css"
+import { EllipsisButton } from '../../components/EllipsisButton';
 
 export const Todo = (props) => {
     const {
@@ -29,7 +30,7 @@ export const Todo = (props) => {
                 <Link to={`/todo/${id}`} className={`mx-auto text-decoration-none`}>
                 <Card.Title><p className='fs-3'>{title}</p></Card.Title>
                 </Link>
-                {is_owner && <><p><FontAwesomeIcon icon={faEllipsisV} /></p></>}
+                {is_owner && <EllipsisButton type="todo" id/>}
             </Card.Header>
             
             <Card.Body>
