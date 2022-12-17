@@ -1,0 +1,14 @@
+
+
+.cardClass{
+    background: rgb(122, 38, 193);
+    background: linear-gradient(20deg, rgba(123, 38, 193, 0.301) 10%, rgba(0, 172, 255, 1) 100%);
+}
+
+.lightColorFont {
+    color:rgb(236, 236, 236);
+}
+
+.cardClass p {
+    color:black;
+}
