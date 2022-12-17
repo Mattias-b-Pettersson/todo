@@ -2,7 +2,7 @@
 
 .cardClass{
     background: rgb(122, 38, 193);
-    background: linear-gradient(20deg, rgba(123, 38, 193, 0.301) 10%, rgba(0, 172, 255, 1) 100%);
+    background: linear-gradient(20deg, rgba(123, 38, 193, 0.151) 10%, rgb(104, 205, 255) 100%);
 }
 
 .lightColorFont {
