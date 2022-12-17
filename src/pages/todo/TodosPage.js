@@ -4,7 +4,7 @@ import { axiosReq } from '../../api/axiosDefaults';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Todo } from './Todo';
 import loading from "../../assets/loading.gif"
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 
 
@@ -38,8 +38,10 @@ export const TodosPage = () => {
                             <Card>
                             <h1 className="mt-4">Todo</h1>
                             <Card.Body>
-                                    {todo.results.map(result => <div key={result.id} className='mb-4'>
-                                    < Todo {...result} setTodo={setTodo} />
+                                {todo.results.map(result => <div key={result.id} className='mb-4'>
+                                    <Link to={`/todo/${result.id}`}>
+                                        < Todo {...result} setTodo={setTodo} />
+                                    </Link>
                                 </div>)}
                             </Card.Body>
                             </Card>
