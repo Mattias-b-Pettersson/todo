@@ -9,6 +9,8 @@ import SignInForm from './pages/auth/SignInForm';
 import { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { TodoCreateForm } from './pages/todo/TodoCreateForm';
+import { TodoPage } from './pages/todo/TodoPage';
+import { TodosPage } from './pages/todo/TodosPage';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -35,13 +37,14 @@ function App() {
         <NavBar />
           <Container className="Main">
             <Routes>
-              <Route exact="true" path="/" element={<h1>Home Page</h1>} />
+          <Route exact="true" path="/" element={<TodosPage />} />
               <Route path="/create" element={<TodoCreateForm />} />
               <Route path="/profile" element={<h1>Profile</h1>} />
               <Route path="/assigned" element={<h1>Assigned</h1>} />
               <Route path="/signup" element={<SignUpForm />} />
               <Route path="/signin" element={<SignInForm />} />
               <Route path="/signout" element={<h1>Sign out</h1>} />
+              <Route exact="true" path="/todo/:id" element={<TodoPage />} />
             </Routes>
           </Container>
         </div>
