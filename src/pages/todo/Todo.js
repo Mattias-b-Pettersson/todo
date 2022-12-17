@@ -24,11 +24,16 @@ export const Todo = (props) => {
 
     return (
         <Card className={styles.cardClass}>
+            
             <Card.Header className="d-flex pb-0" >
-                <Card.Title className={`mx-auto`}><p className='fs-3'>{title}</p></Card.Title>
+                <Link to={`/todo/${id}`} className={`mx-auto text-decoration-none`}>
+                <Card.Title><p className='fs-3'>{title}</p></Card.Title>
+                </Link>
                 {is_owner && <><p><FontAwesomeIcon icon={faEllipsisV} /></p></>}
             </Card.Header>
+            
             <Card.Body>
+
                 <Row>
                     <Col className="mx-auto">
                         {priority && <p className='mb-0'><FontAwesomeIcon icon={faHourglassHalf} /> Priority: {priority}</p>}

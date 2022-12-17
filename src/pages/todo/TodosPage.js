@@ -4,7 +4,7 @@ import { axiosReq } from '../../api/axiosDefaults';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Todo } from './Todo';
 import loading from "../../assets/loading.gif"
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -18,7 +18,8 @@ export const TodosPage = () => {
         // Get the todo that with id from the URL on mount
         const fetchOwnedPosts = async () => {
             try {
-                const { data } = await axiosReq.get(`/todos/?owner=${currentUser?.profile_id}`)
+                // const { data } = await axiosReq.get(`/todos/?owner=${currentUser?.profile_id}`)
+                const { data } = await axiosReq.get(`/todos/?owner=&assigned=${currentUser?.profile_id}`)
                 setTodo(data)
             } catch (error) {
                 console.log(error)
@@ -38,10 +39,8 @@ export const TodosPage = () => {
                             <Card>
                             <h1 className="mt-4">Todo</h1>
                             <Card.Body>
-                                {todo.results.map(result => <div key={result.id} className='mb-4'>
-                                    <Link to={`/todo/${result.id}`}>
+                                {todo.results.map(result => <div key={result.id} className='mb-4'>         
                                         < Todo {...result} setTodo={setTodo} />
-                                    </Link>
                                 </div>)}
                             </Card.Body>
                             </Card>
