@@ -13,8 +13,8 @@ export const EllipsisButton = ({ isType, id, handleDelete }) => {
     useEffect(() => {
         if (isType === "todo") {
             setTypelink("/todo")
-        } else if (isType === "profile") {
-            setTypelink("/profile")
+        } else if (isType === "comment") {
+            setTypelink("/comment")
         }
     }, [isType])
             

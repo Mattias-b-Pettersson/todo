@@ -37,7 +37,7 @@ export const TodoPage = () => {
         setHasLoaded(false);
         handleMount();
 
-    },[id, todo])
+    },[id])
 
 
     return (
@@ -54,6 +54,7 @@ export const TodoPage = () => {
                             todo={id}
                             setTodo={setTodo}
                             setComments={setComments}
+                           
                             />
                         ) : comments.results.length ? (
                             "Comments"
@@ -64,6 +65,7 @@ export const TodoPage = () => {
                                 key={comment.id}
                                 {...comment}
                                 setComments={setComments}
+                                comments={comments}
                                 />
                             ))
                         ) : <span className='m3-4'>No comments yet...</span>}
