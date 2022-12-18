@@ -12,6 +12,7 @@ import { TodoCreateForm } from './pages/todo/TodoCreateForm';
 import { TodoPage } from './pages/todo/TodoPage';
 import { TodosAssignedPage } from './pages/todo/TodosAssignedPage';
 import { TodoEditForm } from './pages/todo/TodoEditForm';
+import { TodosCreatedPage } from './pages/todo/TodosCreatedPage.js';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -39,6 +40,7 @@ function App() {
           <Container className="Main">
             <Routes>
               <Route exact="true" path="/" element={<TodosAssignedPage />} />
+              <Route exact="true" path="/created" element={<TodosCreatedPage />} />
               <Route path="/create" element={<TodoCreateForm />} />
               <Route path="/todo/:id/edit" element={<TodoEditForm />} />
               <Route path="/profile" element={<h1>Profile</h1>} />
