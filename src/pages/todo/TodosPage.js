@@ -5,7 +5,8 @@ import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Todo } from './Todo';
 import loading from "../../assets/loading.gif"
 import { useLocation } from 'react-router-dom';
-
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
 
 
 export const TodosPage = () => {
@@ -23,7 +24,7 @@ export const TodosPage = () => {
         // Fetches all todos that are assigned to the current user and sets the state to todo with data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
         const fetchTodos = async () => {
             try {
-                const { data } = await axiosReq.get(`/todos/?owner=&assigned=${currentUser.profile_id}&search=${search}`)
+                const { data } = await axiosReq.get(`/todos/?owner=&assigned=${currentUser?.profile_id}&search=${search}`)
                 setTodo(data)
                 setHasLoaded(true)
             } catch (error) {
@@ -65,6 +66,17 @@ export const TodosPage = () => {
                                 </Form>
                             {hasLoaded ? (
                             <Card.Body>
+                                <InfiniteScroll 
+                                    children={
+                                        todo.results.map(result => <div key={result.id} className='mb-4'>         
+                                        < Todo {...result} setTodo={setTodo} />
+                                        </div>)
+                                    }
+                                    dataLength={todo.results.length}
+                                    loader={loading}
+                                    hasMore={!!todo.next}
+                                    next={() => {fetchMoreData(todo, setTodo)}}
+                                />
                                 {todo.results.map(result => <div key={result.id} className='mb-4'>         
                                         < Todo {...result} setTodo={setTodo} />
                                 </div>)}
