@@ -10,7 +10,7 @@ import { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 import { TodoCreateForm } from './pages/todo/TodoCreateForm';
 import { TodoPage } from './pages/todo/TodoPage';
-import { TodosPage } from './pages/todo/TodosPage';
+import { TodosAssignedPage } from './pages/todo/TodosAssignedPage';
 import { TodoEditForm } from './pages/todo/TodoEditForm';
 
 export const CurrentUserContext = createContext();
@@ -38,7 +38,7 @@ function App() {
         <NavBar />
           <Container className="Main">
             <Routes>
-          <Route exact="true" path="/" element={<TodosPage />} />
+              <Route exact="true" path="/" element={<TodosAssignedPage />} />
               <Route path="/create" element={<TodoCreateForm />} />
               <Route path="/todo/:id/edit" element={<TodoEditForm />} />
               <Route path="/profile" element={<h1>Profile</h1>} />

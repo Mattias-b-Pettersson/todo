@@ -9,7 +9,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 
 
-export const TodosPage = () => {
+export const TodosAssignedPage = () => {
     const [todos, setTodos] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false)
     const currentUser = useCurrentUser();
@@ -21,10 +21,7 @@ export const TodosPage = () => {
     const { search, ordering } = searchFields;
     const  [ deleteUpdater, setDeleteUpdater ] = useState(false)
 
-
-
     useEffect(() => {
-
         // Fetches all todos that are assigned to the current user and sets the state to todo with 
         // data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
         const fetchTodos = async () => {
@@ -57,7 +54,7 @@ export const TodosPage = () => {
                 <Row>
                     {currentUser ? (
                             <Card>
-                                <h1 className="mt-4">Todo</h1>
+                                <h1 className="mt-4">Assigned todos.</h1>
                                 
                                 <Form onSubmit={(event)=>event.preventDefault}>
                                     <p className='mb-1'>Order by:</p>
