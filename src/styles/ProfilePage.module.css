@@ -1,0 +1,18 @@
+.avatar {
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.avatarOuter {
+    position: relative;
+}
+
+.underAvatar {
+    margin-top: 50px;
+}
+
+.card {
+    margin-top: 70px;
+}
