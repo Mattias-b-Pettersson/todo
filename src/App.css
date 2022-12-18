@@ -1,8 +1,7 @@
 .App {
   text-align: center;
   min-height: 100vh;
-
-  background: rgb(175, 226, 252);  
+  background: rgba(175, 226, 252, 1) url('https://res.cloudinary.com/dickw3yzm/image/upload/v1671393087/milad-fakurian-iFu2HILEng8-unsplash_z2pirx.jpg') center center fixed;
 }
 
 .Main {
