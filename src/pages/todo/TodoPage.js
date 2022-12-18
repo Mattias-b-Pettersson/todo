@@ -7,6 +7,8 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Comment } from '../comments/Comment';
 import loading from "../../assets/loading.gif"
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
 
 
 export const TodoPage = () => {
@@ -60,14 +62,22 @@ export const TodoPage = () => {
                             "Comments"
                         ) : null}
                         {comments.results.length ? (
-                            comments.results.map((comment) => (
-                                <Comment
-                                key={comment.id}
-                                {...comment}
-                                setComments={setComments}
-                                comments={comments}
-                                />
-                            ))
+
+                            <InfiniteScroll 
+                            children={
+                                comments.results.map(comment => 
+                                    <Comment
+                                    key={comment.id}
+                                    {...comment}
+                                    setComments={setComments}
+                                    comments={comments}
+                                    />
+                                )}
+                            loader={<img src={loading} height={102} width={102} alt="loading..." className='mx-auto my-5'/>}
+                            hasMore={!!comments.next}
+                            dataLength={comments.results.length}
+                            next={() => {fetchMoreData(comments, setComments)}}
+                            />
                         ) : <span className='m3-4'>No comments yet...</span>}
                     </Card.Body>
                     ) : (
