@@ -19,7 +19,7 @@ export const TodosCreatedPage = () => {
         ordering: "",
     });
     const { search, ordering } = searchFields;
-    const  [ deleteUpdater, setDeleteUpdater ] = useState(false)
+
 
     useEffect(() => {
         // Fetches all todos that are created by the current user and sets the state to todos with 
@@ -36,7 +36,7 @@ export const TodosCreatedPage = () => {
         setHasLoaded(false);
         fetchTodos();
         
-    }, [currentUser, pathname, search, ordering, deleteUpdater])
+    }, [currentUser, pathname, search, ordering])
 
     const handleChange = (e) => {
         // handles the change of the search and ordering fields
@@ -71,7 +71,7 @@ export const TodosCreatedPage = () => {
                                 <Row>
                                     <InfiniteScroll 
                                         children={
-                                            todos.results.map(result => < Todo {...result} setTodo={setTodos} key={result.id} setDeleteUpdater={setDeleteUpdater} deleteUpdater={deleteUpdater}/>)
+                                            todos.results.map(result => < Todo {...result} setTodo={setTodos} key={result.id} todos={todos} setTodos={setTodos}/>)
                                         }
                                         dataLength={todos.results.length}
                                         loader={<img src={loading} height={102} width={102} alt="loading..." className='mx-auto my-5'/>}

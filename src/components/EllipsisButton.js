@@ -6,7 +6,7 @@ import styles from "../styles/EllipsisButton.module.css"
 import { Link, useNavigate } from 'react-router-dom';
 import { axiosRes } from '../api/axiosDefaults';
 
-export const EllipsisButton = ({ isType, id, handleDelete }) => {
+export const EllipsisButton = ({ isType, handleDelete, handleEdit }) => {
     const [typelink, setTypelink] = useState("")
     const navigate = useNavigate();
 
@@ -18,12 +18,6 @@ export const EllipsisButton = ({ isType, id, handleDelete }) => {
         }
     }, [isType])
             
-
-    const handleChange = (e) => {
-        e.preventDefault();
-        navigate(`${typelink}/${id}/edit`)
-    }
-
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <Button
           variant='link'
@@ -46,7 +40,7 @@ export const EllipsisButton = ({ isType, id, handleDelete }) => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu className={styles.menuOuter}>
-        <Dropdown.Item className={styles.menuItem} onClick={handleChange}><FontAwesomeIcon icon={faFilePen} alt="edit" /></Dropdown.Item>
+        <Dropdown.Item className={styles.menuItem} onClick={handleEdit}><FontAwesomeIcon icon={faFilePen} alt="edit" /></Dropdown.Item>
         <Dropdown.Divider className='p-0 m-0'/>
         <Dropdown.Item  onClick={handleDelete} className={styles.menuItem}><FontAwesomeIcon icon={faTrashCan} alt="delete" /></Dropdown.Item>
       </Dropdown.Menu>

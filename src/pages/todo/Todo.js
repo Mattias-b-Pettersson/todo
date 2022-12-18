@@ -24,8 +24,8 @@ export const Todo = (props) => {
         status,
         title,
         updated_at,
-        setDeleteUpdater,
-        deleteUpdater
+        todo,
+        setTodo,
     } = props;
 
     const handleDelete = () => {
@@ -33,12 +33,20 @@ export const Todo = (props) => {
         const deleteItem = async () => {
         try {
             await axiosRes.delete(`/todo/${id}/`)
-            setDeleteUpdater(!deleteUpdater)
+            setTodo((prevComments) => ({
+                ...prevComments,
+                results: prevComments.results.filter((comment) => comment.id !== id),
+            }))
         } catch (error) {
             console.log(error)
         }}
         deleteItem();
       }
+
+    const handleEdit = () => {
+        //this is a function that navigates to edit page, it is passed down to the EllipsisButton component
+        navigate(`/todo/${id}/edit`)
+    }
 
 
     return (
@@ -48,7 +56,7 @@ export const Todo = (props) => {
                 <Link to={`/todo/${id}`} className={`mx-auto text-decoration-none`}>
                 <Card.Title><p className='fs-3'>{title}</p></Card.Title>
                 </Link>
-                {is_owner && <EllipsisButton isType="todo" id={id} handleDelete={handleDelete} />}
+                {is_owner && <EllipsisButton isType="todo" id={id} handleDelete={handleDelete} handleEdit={handleEdit} />}
             </Card.Header>
             
             <Card.Body>
