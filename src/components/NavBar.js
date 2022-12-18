@@ -100,6 +100,7 @@ const NavBar = () => {
 
     const LoggedInIcons =
         <>
+            <NavLink className={(navData) => navData.isActive ? `${styles.Active} pt-0` : `${styles.NavLink} pt-0`} to="/"><FontAwesomeIcon icon={faPenToSquare} />Assigned todos</NavLink>
             <NavLink className={(navData) => navData.isActive ? `${styles.Active} pt-0` : `${styles.NavLink} pt-0`} to="/created"><FontAwesomeIcon icon={faPenToSquare} />Created todos</NavLink>
             <DropdownMenu />
         </>
