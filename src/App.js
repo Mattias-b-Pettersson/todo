@@ -11,6 +11,7 @@ import axios from 'axios';
 import { TodoCreateForm } from './pages/todo/TodoCreateForm';
 import { TodoPage } from './pages/todo/TodoPage';
 import { TodosPage } from './pages/todo/TodosPage';
+import { TodoEditForm } from './pages/todo/TodoEditForm';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -39,6 +40,7 @@ function App() {
             <Routes>
           <Route exact="true" path="/" element={<TodosPage />} />
               <Route path="/create" element={<TodoCreateForm />} />
+              <Route path="/todo/:id/edit" element={<TodoEditForm />} />
               <Route path="/profile" element={<h1>Profile</h1>} />
               <Route path="/assigned" element={<h1>Assigned</h1>} />
               <Route path="/signup" element={<SignUpForm />} />
