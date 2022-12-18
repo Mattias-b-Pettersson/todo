@@ -10,7 +10,7 @@ import { fetchMoreData } from '../../utils/utils';
 
 
 export const TodosPage = () => {
-    const [todo, setTodo] = useState({ results: [] })
+    const [todos, setTodos] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false)
     const currentUser = useCurrentUser();
     const { pathname } = useLocation();
@@ -24,8 +24,8 @@ export const TodosPage = () => {
         // Fetches all todos that are assigned to the current user and sets the state to todo with data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
         const fetchTodos = async () => {
             try {
-                const { data } = await axiosReq.get(`/todos/?owner=&assigned=${currentUser?.profile_id}&search=${search}`)
-                setTodo(data)
+                const { data } = await axiosReq.get(`/todos/?search=${search}&assigned=${currentUser.profile_id}&ordering=${ordering}`)
+                setTodos(data)
                 setHasLoaded(true)
             } catch (error) {
                 console.log(error)
@@ -34,7 +34,7 @@ export const TodosPage = () => {
         setHasLoaded(false);
         fetchTodos();
         
-    }, [currentUser, pathname, search])
+    }, [currentUser, pathname, search, ordering])
 
     const handleChange = (e) => {
         // handles the change of the search and ordering fields
@@ -66,20 +66,17 @@ export const TodosPage = () => {
                                 </Form>
                             {hasLoaded ? (
                             <Card.Body>
-                                <InfiniteScroll 
-                                    children={
-                                        todo.results.map(result => <div key={result.id} className='mb-4'>         
-                                        < Todo {...result} setTodo={setTodo} />
-                                        </div>)
-                                    }
-                                    dataLength={todo.results.length}
-                                    loader={loading}
-                                    hasMore={!!todo.next}
-                                    next={() => {fetchMoreData(todo, setTodo)}}
-                                />
-                                {todo.results.map(result => <div key={result.id} className='mb-4'>         
-                                        < Todo {...result} setTodo={setTodo} />
-                                </div>)}
+                                <Row>
+                                    <InfiniteScroll 
+                                        children={
+                                            todos.results.map(result => < Todo {...result} setTodo={setTodos} key={result.id} />)
+                                        }
+                                        dataLength={todos.results.length}
+                                        loader={<img src={loading} height={102} width={102} alt="loading..." className='mx-auto my-5'/>}
+                                        hasMore={!!todos.next}
+                                        next={() => {fetchMoreData(todos, setTodos)}}
+                                    />
+                                </Row>
                             </Card.Body>
                         ) : (
                             <img src={loading} height={102} width={102} alt="loading..." className='mx-auto my-5'/>
