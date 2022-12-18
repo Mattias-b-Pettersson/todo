@@ -1,13 +1,16 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Avatar from "../../components/Avatar"
 import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Todo.module.css"
 import { EllipsisButton } from '../../components/EllipsisButton';
+import { axiosRes } from '../../api/axiosDefaults';
 
 export const Todo = (props) => {
+    
+    const navigate = useNavigate();
     const {
         id,
         assigned,
@@ -21,16 +24,32 @@ export const Todo = (props) => {
         status,
         title,
         updated_at,
+        setDeleteUpdater,
+        deleteUpdater
     } = props;
 
+    const handleDelete = () => {
+        //this is a function that deletes the todo on click, it is passed down to the EllipsisButton component
+        const deleteItem = async () => {
+        try {
+            await axiosRes.delete(`/todo/${id}/`)
+            setDeleteUpdater(!deleteUpdater)
+        } catch (error) {
+            console.log(error)
+        }}
+        deleteItem();
+      }
+
+
     return (
-        <Card className={styles.cardClass}>
+        <div className="m-4">
+        <Card  className={styles.cardClass}>
             
             <Card.Header className="d-flex pb-0" >
                 <Link to={`/todo/${id}`} className={`mx-auto text-decoration-none`}>
                 <Card.Title><p className='fs-3'>{title}</p></Card.Title>
                 </Link>
-                {is_owner && <EllipsisButton type="todo" id/>}
+                {is_owner && <EllipsisButton isType="todo" id={id} handleDelete={handleDelete} />}
             </Card.Header>
             
             <Card.Body>
@@ -75,5 +94,6 @@ export const Todo = (props) => {
                 </Card.Footer>
             }
         </Card>
+        </div>
     )
 }

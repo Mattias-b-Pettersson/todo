@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Card, Form } from 'react-bootstrap';
-import { axiosReq } from '../../api/axiosDefaults';
+import { axiosReq, axiosRes } from '../../api/axiosDefaults';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Todo } from './Todo';
 import loading from "../../assets/loading.gif"
@@ -19,9 +19,14 @@ export const TodosPage = () => {
         ordering: "",
     });
     const { search, ordering } = searchFields;
+    const  [ deleteUpdater, setDeleteUpdater ] = useState(false)
+
+
 
     useEffect(() => {
-        // Fetches all todos that are assigned to the current user and sets the state to todo with data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
+
+        // Fetches all todos that are assigned to the current user and sets the state to todo with 
+        // data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
         const fetchTodos = async () => {
             try {
                 const { data } = await axiosReq.get(`/todos/?search=${search}&assigned=${currentUser.profile_id}&ordering=${ordering}`)
@@ -34,7 +39,7 @@ export const TodosPage = () => {
         setHasLoaded(false);
         fetchTodos();
         
-    }, [currentUser, pathname, search, ordering])
+    }, [currentUser, pathname, search, ordering, deleteUpdater])
 
     const handleChange = (e) => {
         // handles the change of the search and ordering fields
@@ -69,7 +74,7 @@ export const TodosPage = () => {
                                 <Row>
                                     <InfiniteScroll 
                                         children={
-                                            todos.results.map(result => < Todo {...result} setTodo={setTodos} key={result.id} />)
+                                            todos.results.map(result => < Todo {...result} setTodo={setTodos} key={result.id} setDeleteUpdater={setDeleteUpdater} deleteUpdater={deleteUpdater}/>)
                                         }
                                         dataLength={todos.results.length}
                                         loader={<img src={loading} height={102} width={102} alt="loading..." className='mx-auto my-5'/>}

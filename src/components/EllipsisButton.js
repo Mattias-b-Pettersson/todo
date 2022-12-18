@@ -1,10 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { faEllipsisV, faFilePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Dropdown, Form } from 'react-bootstrap';
+import { Dropdown } from 'react-bootstrap';
 import styles from "../styles/EllipsisButton.module.css"
+import { Link } from 'react-router-dom';
+import { axiosRes } from '../api/axiosDefaults';
 
-export const EllipsisButton = ({handleEdit, handleDelete}) => {
+export const EllipsisButton = ({ isType, id, handleDelete }) => {
+    const [typelink, setTypelink] = useState("")
+
+    useEffect(() => {
+        if (isType === "todo") {
+            setTypelink("/todo")
+        } else if (isType === "profile") {
+            setTypelink("/profile")
+        }
+    }, [isType])
+            
 
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <a
@@ -24,13 +36,12 @@ export const EllipsisButton = ({handleEdit, handleDelete}) => {
   return (
     <Dropdown drop="left">
       <Dropdown.Toggle as={CustomToggle} variant="success" id="dropdown-basic" >
-
       </Dropdown.Toggle>
 
       <Dropdown.Menu className={styles.menuOuter}>
-        <Dropdown.Item className={styles.menuItem}><FontAwesomeIcon icon={faFilePen} alt="edit" onClick={handleEdit}/></Dropdown.Item>
+        <Dropdown.Item className={styles.menuItem}><Link to={`${typelink}/${id}/edit`}><FontAwesomeIcon icon={faFilePen} alt="edit" /></Link></Dropdown.Item>
         <Dropdown.Divider className='p-0 m-0'/>
-        <Dropdown.Item  className={styles.menuItem}><FontAwesomeIcon icon={faTrashCan} alt="delete" onClick={handleDelete}/></Dropdown.Item>
+        <Dropdown.Item  onClick={handleDelete} className={styles.menuItem}><FontAwesomeIcon icon={faTrashCan} alt="delete" /></Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   )
