@@ -1,8 +1,8 @@
 .App {
   text-align: center;
   min-height: 100vh;
-  background-color: #eee;
-  
+
+  background: rgb(175, 226, 252);  
 }
 
 .Main {
