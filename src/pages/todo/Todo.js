@@ -42,8 +42,7 @@ export const Todo = (props) => {
 
 
     return (
-        <div className="m-4">
-        <Card  className={styles.cardClass}>
+        <Card  className={`${styles.cardClass} mt-4`}>
             
             <Card.Header className="d-flex pb-0" >
                 <Link to={`/todo/${id}`} className={`mx-auto text-decoration-none`}>
@@ -94,6 +93,5 @@ export const Todo = (props) => {
                 </Card.Footer>
             }
         </Card>
-        </div>
     )
 }
