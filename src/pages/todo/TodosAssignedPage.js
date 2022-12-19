@@ -25,9 +25,11 @@ export const TodosAssignedPage = () => {
         // data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
         const fetchTodos = async () => {
             try {
-                const { data } = await axiosReq.get(`/todos/?search=${search}&assigned=${currentUser.profile_id}&ordering=${ordering}`)
-                setTodos(data)
-                setHasLoaded(true)
+                if (currentUser?.profile_id){
+                    const { data } = await axiosReq.get(`/todos/?search=${search}&assigned=${currentUser?.profile_id}`)
+                    setTodos(data)
+                    setHasLoaded(true)
+                }
             } catch (error) {
                 console.log(error)
             }
