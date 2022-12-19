@@ -30,7 +30,6 @@ const UsernameForm = ({setShowEditUserNameForm}) => {
     } else {
         navigate("/");
     }
-    console.log(currentUser)
   }, [currentUser, navigate, id]);
 
   const handleSubmit = async (event) => {
