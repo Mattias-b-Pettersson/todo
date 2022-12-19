@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Todo.module.css"
 import { EllipsisButton } from '../../components/EllipsisButton';
@@ -12,7 +12,7 @@ export const Todo = (props) => {
     const navigate = useNavigate();
     const {
         id,
-        assigned,
+        assigned_username,
         content,
         file,
         is_owner,
@@ -23,6 +23,8 @@ export const Todo = (props) => {
         title,
         updated_at,
         setTodo,
+        due_date,
+        due_date_has_passed,
     } = props;
 
     const handleDelete = () => {
@@ -58,10 +60,11 @@ export const Todo = (props) => {
             
             <Card.Body>
 
-                <Row>
+                <Row className="mx-auto">
                     <Col className="mx-auto">
-                        {priority && <p className='mb-0'><FontAwesomeIcon icon={faHourglassHalf} /> Priority: {priority}</p>}
-                        {status && <p><FontAwesomeIcon icon={faClock} /> status: {status}</p>}
+                        <p className='mb-0'><FontAwesomeIcon icon={faExclamationTriangle} /> Priority: {priority}</p>
+                        <p className='my-1'><FontAwesomeIcon icon={faClock} /> status: {status}</p>
+                        {due_date_has_passed ? (<p className='mt-0 d-inline rounded p-1 bg-danger'><FontAwesomeIcon icon={faHourglassHalf}  /> Due Date: {due_date}</p>) : (<p className='mt-0 p-2'><FontAwesomeIcon icon={faHourglassHalf} /> Due Date: {due_date}</p>)}
                     </Col>
                 </Row>
                 <Row>
@@ -72,10 +75,10 @@ export const Todo = (props) => {
                         </>}
                     </Col>
                 </Row>
-                {assigned &&
+                {assigned_username &&
                     <Row>
                         <Col xs={10} className="d-inline-block mt-3 mx-auto ">
-                            <p className="mb-1"><FontAwesomeIcon icon={faUserGroup} /> Assigned: {assigned}</p>
+                            <p className="mb-1"><FontAwesomeIcon icon={faUserGroup} /> Assigned: {assigned_username}</p>
                         </Col>
                     </Row>
                 }
