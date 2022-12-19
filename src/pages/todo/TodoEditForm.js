@@ -65,7 +65,6 @@ export const TodoEditForm = () => {
         [event.target.name]: [].slice.call(event.target.selectedOptions).map(item => item.value)
 
       })
-      console.log(assigned)
     } else {
       setTodoData({
         ...todoData,
@@ -93,11 +92,6 @@ export const TodoEditForm = () => {
       formData.append("file", fileInput.current.files[0])
     }
     
-   
-    for (const value of formData.values()) {
-      console.log(value);
-    }
-
     try {
     await axiosReq.put(`/todo/${id}`, formData)
     navigate(`/todo/${id}`)
