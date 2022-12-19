@@ -1,10 +1,14 @@
-import React from 'react'
-import { Card, Col } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Card, Col, Media } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
 import { EllipsisButton } from '../../components/EllipsisButton'
+import CommentEditForm from "./CommentEditForm";
 
-export const Comment = ({ id, content, created_at, profile_image, owner, is_owner, setComments, comments }) => {
+export const Comment = ({ id, content, updated_at, created_at, profile_image, owner, is_owner, setComments, comments, profile_id }) => {
+    const [showEditForm, setShowEditForm] = useState(false);
+
 
     const handleDelete = () => {
         //this is a function that deletes the comment on click, it is passed down to the EllipsisButton component
@@ -20,6 +24,10 @@ export const Comment = ({ id, content, created_at, profile_image, owner, is_owne
             results: prevComments.results.filter((comment) => comment.id !== id),
         }))}
 
+    const handleEdit = () => {
+        setShowEditForm(true);
+    }
+
 
   return (
     <Card fluid="true" className='my-3'>
@@ -31,11 +39,24 @@ export const Comment = ({ id, content, created_at, profile_image, owner, is_owne
                 <div className='ms-auto align-self-center text-muted'>
                     Created: {created_at}
                 </div>
-                {is_owner &&
-                    <EllipsisButton isType="comment" id={id} handleDelete={handleDelete} />
+                {is_owner && !showEditForm &&
+                    <EllipsisButton isType="comment" id={id} handleDelete={handleDelete} handleEdit={handleEdit} />
                 }
             </Col>
-            <p className='d-flex pt-3 ps-2 ms-auto border-top'>{content}</p>
+            {showEditForm ? (
+                <CommentEditForm
+                    id={id}
+                    profile_id={profile_id}
+                    content={content}
+                    profileImage={profile_image}
+                    setComments={setComments}
+                    setShowEditForm={setShowEditForm}
+                />
+            ) : (
+                <>
+                    <p className='d-flex pt-3 ps-2 ms-auto border-top'>{content}</p>
+                </>
+            )}
         </Card.Body>
     </Card>
   )
