@@ -27,6 +27,7 @@ export const TodoCreateForm = () => {
   const fileInput = useRef(null)
 
   useEffect(() => {
+    //this is a function that fetches the profiles data and sets it to state on page load.
     async function handleMount() {
       try {
         const { data } = await axiosReq.get("/profiles/")
@@ -40,6 +41,7 @@ export const TodoCreateForm = () => {
   }, []);
 
   const handleChangeFile = (event) => {
+    //this is a function that handles the file input change.
     if (event.target.files.length) {
       URL.revokeObjectURL(file);
       setTodoData({
@@ -50,6 +52,7 @@ export const TodoCreateForm = () => {
   }
 
   const handleChange = (event) => {
+    //this is a function that handles the input change for all fields except the file field and the duedate field.
     if (event.target.name === "assigned") {
       setTodoData({
         ...todoData,
@@ -61,7 +64,6 @@ export const TodoCreateForm = () => {
       setTodoData({
         ...todoData,
         [event.target.name]: event.target.value,
-
       });
     }
   };
