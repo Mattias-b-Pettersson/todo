@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Col, Card, Row, Form, Button, Alert } from 'react-bootstrap'
-import ReactDatePicker from 'react-datepicker';
 import { axiosReq } from '../../api/axiosDefaults';
 import loading from "../../assets/loading.gif"
 import { useRedirect } from '../../hooks/useRedirect';
 import styles from "../../styles/TodoCreateEditForm.module.css"
-import "react-datepicker/dist/react-datepicker.css";
+
 
 export const TodoCreateForm = () => {
   useRedirect("loggedOut")
