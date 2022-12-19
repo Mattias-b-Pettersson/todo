@@ -15,7 +15,7 @@ export const useRedirect = (userAuthstatus) => {
             } catch (error) {
                 //if user is not logged in, redirect to login page
                 if (userAuthstatus === "loggedOut") {
-                    navigate("/login")
+                    navigate("/signin")
                 }
             }
         }
