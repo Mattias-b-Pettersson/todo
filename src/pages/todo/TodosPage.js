@@ -30,7 +30,7 @@ export const TodosPage = () => {
         const fetchTodos = async () => {
             try {
                 if (currentUser?.profile_id) {
-                    const { data } = await axiosReq.get(`/todos/?owner=&ordering=${ordering}&status=${status}&priority=${priority}&`)
+                    const { data } = await axiosReq.get(`/todos/?owner=&search=${search}&ordering=${ordering}&status=${status}&priority=${priority}&`)
                     setTodos(data)
                     setHasLoaded(true)
                 }
@@ -61,7 +61,7 @@ export const TodosPage = () => {
                         <Card>
                             <h1 className="mt-4">Todos</h1>
 
-                            <Form onSubmit={(event) => event.preventDefault}>
+                            <Form onSubmit={(event) => event.preventDefault()}>
                                 <Row>
                                 <Col>
                                 <p className='mb-0'>Search</p>
