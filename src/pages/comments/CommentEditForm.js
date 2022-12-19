@@ -12,6 +12,7 @@ function CommentEditForm({ id, content, setShowEditForm, setComments }) {
   };
 
   const handleSubmit = async (event) => {
+    // this is a function that handles the submit event for the edit form. And updates the comment in the database. And removes the comment from the state.
     event.preventDefault();
     try {
       await axiosRes.put(`/comment/${id}/`, {
