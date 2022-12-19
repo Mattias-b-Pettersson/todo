@@ -41,7 +41,7 @@ export const TodoEditForm = () => {
         .catch((error) => {
             setErrors(error.response?.data)
         })
-    }, [])
+    }, [id])
 
 
   const handleChangeFile = (event) => {

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { Card, Col, Media } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Card, Col } from 'react-bootstrap'
 import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
 import { EllipsisButton } from '../../components/EllipsisButton'
@@ -60,4 +59,3 @@ export const Comment = ({ id, content, updated_at, created_at, profile_image, ow
         </Card.Body>
     </Card>
   )
-}

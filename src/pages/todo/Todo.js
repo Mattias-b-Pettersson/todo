@@ -1,8 +1,7 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
-import Avatar from "../../components/Avatar"
-import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock, faEllipsisV } from '@fortawesome/free-solid-svg-icons';
+import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Todo.module.css"
 import { EllipsisButton } from '../../components/EllipsisButton';
@@ -15,7 +14,6 @@ export const Todo = (props) => {
         id,
         assigned,
         content,
-        created_at,
         file,
         is_owner,
         owner,
@@ -24,7 +22,6 @@ export const Todo = (props) => {
         status,
         title,
         updated_at,
-        todo,
         setTodo,
     } = props;
 

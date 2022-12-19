@@ -1,22 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { faEllipsisV, faFilePen, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Button, Dropdown } from 'react-bootstrap';
 import styles from "../styles/EllipsisButton.module.css"
-import { Link, useNavigate } from 'react-router-dom';
-import { axiosRes } from '../api/axiosDefaults';
 
-export const EllipsisButton = ({ isType, handleDelete, handleEdit }) => {
-    const [typelink, setTypelink] = useState("")
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        if (isType === "todo") {
-            setTypelink("/todo")
-        } else if (isType === "comment") {
-            setTypelink("/comment")
-        }
-    }, [isType])
+export const EllipsisButton = ({ handleDelete, handleEdit }) => {
             
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <Button

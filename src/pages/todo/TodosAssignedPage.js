@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Row, Col, Card, Form } from 'react-bootstrap';
-import { axiosReq, axiosRes } from '../../api/axiosDefaults';
+import { axiosReq} from '../../api/axiosDefaults';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Todo } from './Todo';
 import loading from "../../assets/loading.gif"

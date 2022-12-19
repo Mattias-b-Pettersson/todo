@@ -14,7 +14,7 @@ export const ProfilePage = () => {
     const [profile, setProfile] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false);
 
-    const {content, created_at, image, is_owner, name, owner, updated_at} = profile;
+    const {content, created_at, image, is_owner, name, owner} = profile;
 
     useEffect(() => {
         const fetchProfile = async () => {

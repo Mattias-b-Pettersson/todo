@@ -22,7 +22,7 @@ const NavBar = () => {
     const { expanded, setExpanded, ref } = useClickOutsideToggle();
     const { windowSize } = useHandleWindowSize();
 
-    const [errors, setErrors] = useState({});
+    const [, setErrors] = useState({});
 
     const handleSignOut = async (event) => {
         try {
