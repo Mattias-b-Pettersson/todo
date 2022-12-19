@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/CommentCreateEditForm.module.css";
 
 function CommentEditForm({ id, content, setShowEditForm, setComments }) {
 
@@ -40,7 +39,6 @@ function CommentEditForm({ id, content, setShowEditForm, setComments }) {
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
         <Form.Control
-          className={styles.Form}
           as="textarea"
           value={formContent}
           onChange={handleChange}
