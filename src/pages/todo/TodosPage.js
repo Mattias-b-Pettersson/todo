@@ -59,11 +59,16 @@ export const TodosPage = () => {
                 <Row>
                     {currentUser ? (
                         <Card>
-                            <h1 className="mt-4">Created todos</h1>
+                            <h1 className="mt-4">Todos</h1>
 
                             <Form onSubmit={(event) => event.preventDefault}>
-                                <p className='mb-1'>Order by:</p>
+                                <Row>
+                                <Col>
+                                <p className='mb-0'>Search</p>
                                 <Form.Control name="search" as="input" onChange={handleChange} value={search} placeholder="Search..." className='mb-2' />
+                                </Col>
+                                <Col>
+                                <p className='mb-0'>Order by:</p>
                                 <Form.Control name="ordering" as="select" onChange={handleChange} value={ordering}>
                                     <option value="">----</option>
                                     <option value="status">Ascending status</option>
@@ -71,9 +76,11 @@ export const TodosPage = () => {
                                     <option value="priority">Ascending priority</option>
                                     <option value="-priority">Descending priority</option>
                                 </Form.Control>
+                                </Col>
+                                </Row>
                                 <Row>
                                     <Col>
-                                        Sort by status
+                                        <p className='mb-0'>Sort by status</p>
                                         <Form.Control name="status" as="select" onChange={handleChange} value={status} className='mt-2'>
                                             <option value="">----</option>
                                             <option value="todo">Todo</option>
@@ -83,7 +90,7 @@ export const TodosPage = () => {
                                         </Form.Control>
                                     </Col>
                                     <Col>
-                                        Sort by Priority
+                                        <p className='mb-0'>Sort by Priority</p>
                                         <Form.Control name="priority" as="select" onChange={handleChange} value={priority} className='mt-2'>
                                             <option value="">----</option>
                                             <option value="1">1</option>
