@@ -59,7 +59,7 @@ const NavBar = () => {
                         <Dropdown.Menu>
 
                             <Dropdown.Item>
-                                <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.id}`}>
+                                <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.profile_id}`}>
                                     <FontAwesomeIcon icon={faUser} />
                                     Profile
                                 </NavLink>
