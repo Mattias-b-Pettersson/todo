@@ -39,7 +39,7 @@ export const ProfilePage = () => {
         <Card className={styles.card} >
             {hasLoaded ? (
                 <Card.Body className={styles.avatarOuter}>
-                    <div className={styles.avatar}>
+                    <div className={`${styles.avatar} bg-white rounded-circle`}>
                         <Avatar src={image} height="100"></Avatar>
                     </div>
                     {is_owner ? (<span className='d-flex ms-auto'><EllipsisProfileButton id={profile?.id} className="mt-2" setShowEditUserNameForm={setShowEditUserNameForm}/></span>) : ("")}
