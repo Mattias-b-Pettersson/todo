@@ -8,8 +8,10 @@ import { faUser, faLock, faKey } from '@fortawesome/free-solid-svg-icons'
 import styles from "../../styles/SignUpInForm.module.css"
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useRedirect } from '../../hooks/useRedirect';
 
 const SignUpForm = () => {
+    useRedirect("loggedIn")
     const [signUpData, setSignUpData] = useState({
         username: "",
         password1: "",
