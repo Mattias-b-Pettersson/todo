@@ -58,7 +58,7 @@ export function EllipsisProfileButton({ id, setShowEditUserNameForm}) {
     ));
 
   return (
-    <Dropdown drop="left">
+    <Dropdown drop="right">
       <Dropdown.Toggle as={CustomToggle} id="dropdown-basic" >
       </Dropdown.Toggle>
 
