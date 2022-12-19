@@ -71,7 +71,7 @@ export const Todo = (props) => {
                     <Col xs={10} className="d-inline-block mt-3 mx-auto ">
                         {content && <>
                         <p className="mb-1"><FontAwesomeIcon icon={faClipboard} /> Description:</p>
-                        <p className="text-truncate">{content}</p>
+                        <p>{content}</p>
                         </>}
                     </Col>
                 </Row>
