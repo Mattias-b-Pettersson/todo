@@ -59,3 +59,4 @@ export const Comment = ({ id, content, updated_at, created_at, profile_image, ow
         </Card.Body>
     </Card>
   )
+}
