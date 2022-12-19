@@ -13,6 +13,7 @@ import { TodoPage } from './pages/todo/TodoPage';
 import { TodosAssignedPage } from './pages/todo/TodosAssignedPage';
 import { TodoEditForm } from './pages/todo/TodoEditForm';
 import { TodosCreatedPage } from './pages/todo/TodosCreatedPage.js';
+import { ProfilePage } from './pages/profiles/ProfilePage';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -40,14 +41,15 @@ function App() {
           <Container className="Main">
             <Routes>
               <Route exact="true" path="/" element={<TodosAssignedPage />} />
+              <Route exact="true" path='/profiles/:id' element={<ProfilePage />} />
               <Route exact="true" path="/created" element={<TodosCreatedPage />} />
-              <Route path="/create" element={<TodoCreateForm />} />
-              <Route path="/todo/:id/edit" element={<TodoEditForm />} />
-              <Route path="/profile" element={<h1>Profile</h1>} />
-              <Route path="/assigned" element={<h1>Assigned</h1>} />
-              <Route path="/signup" element={<SignUpForm />} />
-              <Route path="/signin" element={<SignInForm />} />
-              <Route path="/signout" element={<h1>Sign out</h1>} />
+              <Route exact="true" path="/create" element={<TodoCreateForm />} />
+              <Route exact="true" path="/todo/:id/edit" element={<TodoEditForm />} />
+              <Route exact="true" path="/profile" element={<h1>Profile</h1>} />
+              <Route exact="true" path="/assigned" element={<h1>Assigned</h1>} />
+              <Route exact="true" path="/signup" element={<SignUpForm />} />
+              <Route exact="true" path="/signin" element={<SignInForm />} />
+              <Route exact="true" path="/signout" element={<h1>Sign out</h1>} />
               <Route exact="true" path="/todo/:id" element={<TodoPage />} />
             </Routes>
           </Container>
