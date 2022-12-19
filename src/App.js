@@ -16,6 +16,8 @@ import { TodosCreatedPage } from './pages/todo/TodosCreatedPage.js';
 import { ProfilePage } from './pages/profiles/ProfilePage';
 import { TodosPage } from './pages/todo/TodosPage';
 import { NotFound } from './pages/NotFound';
+import UserPasswordForm from './pages/profiles/userPassworForm';
+import ProfileEditForm from './pages/profiles/ProfileEditForm';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -49,6 +51,8 @@ function App() {
               <Route exact="true" path="/signup" element={<SignUpForm />} />
               <Route exact="true" path="/signin" element={<SignInForm />} />
               <Route exact="true" path="/todo/:id" element={<TodoPage />} />
+              <Route exact="true" path="/profiles/:id/edit/password"  element={<UserPasswordForm />}/>
+              <Route exact="true" path="/profiles/:id/edit"  element={<ProfileEditForm />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Container>
