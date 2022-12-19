@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 import loading from "../../assets/loading.gif"
 import Avatar from '../../components/Avatar';
+import { EllipsisButton } from '../../components/EllipsisButton';
 import styles from '../../styles/ProfilePage.module.css';
 
 export const ProfilePage = () => {
@@ -37,6 +38,7 @@ export const ProfilePage = () => {
                     <div className={styles.avatar}>
                         <Avatar src={image} height="100"></Avatar>
                     </div>
+                    {is_owner ? (<span className='d-flex ms-auto'><EllipsisButton className="mt-2"/></span>) : ("")}
                     <Card.Title className={styles.underAvatar}>{owner}</Card.Title>
                     {name && <Card.Subtitle className="mb-2 text-muted">{name}</Card.Subtitle>}
                     <Card.Text className='mb-2 mt-3 '>About me:</Card.Text>
@@ -45,7 +47,7 @@ export const ProfilePage = () => {
                         {content ? (
                             content
                         ) : (
-                            name ? (<p>{name} hasn't written anything yet..</p>) : (<p>{owner} hasn't written anything yet..</p>))}
+                            name ? (<>{name} hasn't written anything yet..</>) : (<>{owner} hasn't written anything yet..</>))}
 
                     </Card.Text>
                     <Card.Text className='text-muted mt-5 d-flex ms-auto'>Been a member since: {created_at}</Card.Text>
