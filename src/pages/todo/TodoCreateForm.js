@@ -17,12 +17,12 @@ export const TodoCreateForm = () => {
     title: "",
     content: "",
     priority: "1",
-    state: "todo",
+    status: "todo",
     assigned: "",
     file: "",
   })
 
-  const { title, content, priority, state, assigned, file } = todoData;
+  const { title, content, priority, status, assigned, file } = todoData;
 
   const fileInput = useRef(null)
 
@@ -75,7 +75,7 @@ export const TodoCreateForm = () => {
     formData.append("content", content)
     formData.append("priority", priority)
     formData.append("assigned", assigned)
-    formData.append("state", state)
+    formData.append("status", status)
     formData.append("due_date", `${dueDate}T00:00`)
 
     // Needs this if statement, or else the API wont accept an empty file field. 
@@ -174,14 +174,14 @@ export const TodoCreateForm = () => {
                 </Alert>
               ))}
 
-              <Form.Group className="mb-4" controlId="state">
+              <Form.Group className="mb-4" controlId="status">
 
                 <Row className="justify-content-center">
                   <Col xs={12} md={2}>
-                    <Form.Label className="fs-3 pt-0">State:</Form.Label>
+                    <Form.Label className="fs-3 pt-0">status:</Form.Label>
                   </Col>
                   <Col md={8} className="pt-1">
-                    <Form.Control name="state" as="select" onChange={handleChange} value={state}>
+                    <Form.Control name="status" as="select" onChange={handleChange}>
                       <option value="todo">Todo</option>
                       <option value="in_progress">In progress</option>
                       <option value="on_hold">On hold</option>
@@ -191,7 +191,7 @@ export const TodoCreateForm = () => {
                 </Row>
 
               </Form.Group>
-              {errors.state?.map((message, idx) => (
+              {errors.status?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                   {message}
                 </Alert>
