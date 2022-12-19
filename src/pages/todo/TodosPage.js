@@ -30,7 +30,7 @@ export const TodosPage = () => {
         const fetchTodos = async () => {
             try {
                 if (currentUser?.profile_id) {
-                    const { data } = await axiosReq.get(`/todos/?owner=&status=${status}&priority=${priority}&`)
+                    const { data } = await axiosReq.get(`/todos/?owner=&ordering=${ordering}&status=${status}&priority=${priority}&`)
                     setTodos(data)
                     setHasLoaded(true)
                 }
