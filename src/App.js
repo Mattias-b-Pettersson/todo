@@ -44,14 +44,10 @@ function App() {
             <Routes>
               <Route exact="true" path="/" element={<TodosPage />} />
               <Route exact="true" path='/profiles/:id' element={<ProfilePage />} />
-              <Route exact="true" path="/created" element={<TodosCreatedPage />} />
               <Route exact="true" path="/create" element={<TodoCreateForm />} />
               <Route exact="true" path="/todo/:id/edit" element={<TodoEditForm />} />
-              <Route exact="true" path="/profile" element={<h1>Profile</h1>} />
-              <Route exact="true" path="/assigned" element={<h1>Assigned</h1>} />
               <Route exact="true" path="/signup" element={<SignUpForm />} />
               <Route exact="true" path="/signin" element={<SignInForm />} />
-              <Route exact="true" path="/signout" element={<h1>Sign out</h1>} />
               <Route exact="true" path="/todo/:id" element={<TodoPage />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
