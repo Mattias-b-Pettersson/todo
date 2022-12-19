@@ -12,16 +12,17 @@ import { fetchMoreData } from '../../utils/utils';
 export const TodosPage = () => {
     const [todos, setTodos] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false)
+    const [assigned, setAssigne] = useState("created")
     const currentUser = useCurrentUser();
     const { pathname } = useLocation();
     const [searchFields, setSearchFields] = useState({
         search: "",
         ordering: "",
-        assigned: false,
         status: "",
-        priority: ""
+        priority: "",
+        assignedOrCreated: ""
     });
-    const { search, ordering, status, priority, assigned } = searchFields;
+    const { search, ordering, status, priority, assignedOrCreated } = searchFields;
 
 
     useEffect(() => {
@@ -30,7 +31,7 @@ export const TodosPage = () => {
         const fetchTodos = async () => {
             try {
                 if (currentUser?.profile_id) {
-                    const { data } = await axiosReq.get(`/todos/?owner=&search=${search}&ordering=${ordering}&status=${status}&priority=${priority}&`)
+                    const { data } = await axiosReq.get(`/todos/?owner=&search=${search}&ordering=${ordering}&status=${status}&priority=${priority}${assignedOrCreated}`)
                     setTodos(data)
                     setHasLoaded(true)
                 }
@@ -92,10 +93,19 @@ export const TodosPage = () => {
                                     <Col>
                                         <p className='mb-0'>Sort by Priority</p>
                                         <Form.Control name="priority" as="select" onChange={handleChange} value={priority} className='mt-2'>
-                                            <option value="">----</option>
+                                            <option value="" name="" >----</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
+                                        </Form.Control>
+                                    </Col>
+                                </Row>
+                                <Row>
+                                    <Col>
+                                    <Form.Control name="assignedOrCreated" as="select" onChange={handleChange} value={priority} className='mt-2'>
+                                            <option value={`&assigned=${currentUser.profile_id}`}>Assigned to you</option>
+                                            <option value={`&created=${currentUser.profile_id}`}>Created by you</option>
+
                                         </Form.Control>
                                     </Col>
                                 </Row>
