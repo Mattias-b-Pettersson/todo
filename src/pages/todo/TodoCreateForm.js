@@ -1,12 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { Col, Card, Row, Form, Button, Alert } from 'react-bootstrap'
+import ReactDatePicker from 'react-datepicker';
 import { axiosReq } from '../../api/axiosDefaults';
 import loading from "../../assets/loading.gif"
 import { useRedirect } from '../../hooks/useRedirect';
 import styles from "../../styles/TodoCreateEditForm.module.css"
+import "react-datepicker/dist/react-datepicker.css";
 
 export const TodoCreateForm = () => {
   useRedirect("loggedOut")
+  const [dueDate, setDueDate] = useState(new Date());
   const [profiles, setProfiles] = useState({});
   const [loaded, setLoaded] = useState(false);
   const [errors, setErrors] = useState({});
@@ -73,6 +76,7 @@ export const TodoCreateForm = () => {
     formData.append("priority", priority)
     formData.append("assigned", assigned)
     formData.append("state", state)
+    formData.append("due_date", `${dueDate}T00:00`)
 
     // Needs this if statement, or else the API wont accept an empty file field. 
     // So if no file is selected the form wont send any data for file.
@@ -193,11 +197,29 @@ export const TodoCreateForm = () => {
                 </Alert>
               ))}
 
+              <Form.Group className="mb-4" controlId="date">
+
+              <Row className="justify-content-center d-flex align-items-center">
+                <Col xs={12} md={2}>
+                  <Form.Label className="fs-3 p-0">Due date:</Form.Label>
+                </Col>
+                <Col md={8} className="pt-1 px-auto">
+                  <Form.Control type="date" name="duedate" placeholder="Due date" onChange={(event) => setDueDate(event.target.value)} className="d-flex align-self-center"/>
+                </Col>
+              </Row>
+
+              </Form.Group>
+              {errors.date?.map((message, idx) => (
+              <Alert variant="warning" key={idx}>
+                {message}
+              </Alert>
+              ))}
+
               <Form.Group className="mb-4" controlId="assigned">
 
                 <Row className="justify-content-center">
                   <Col xs={12} md={2}>
-                    <Form.Label className="fs-3 pt-0">Assign:</Form.Label>
+                    <Form.Label className="fs-3 pt-0 ">Assign:</Form.Label>
                     <p className='fw-light text-muted'>Hold control to select multiple</p>
                   </Col>
                   <Col md={8} className="pt-1">
