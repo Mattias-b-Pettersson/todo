@@ -30,6 +30,7 @@ export const TodoEditForm = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    //this is a function that fetches the todo data and profiles data and sets them to state on page load or if the id changes.
         Promise.all([
             axiosReq.get("/profiles/"),
             axiosReq.get(`/todo/${id}/`)
@@ -46,6 +47,7 @@ export const TodoEditForm = () => {
 
 
   const handleChangeFile = (event) => {
+    //this is a function that handles the file input change.
     if (event.target.files.length) {
       URL.revokeObjectURL(file);
       setTodoData({
@@ -56,6 +58,7 @@ export const TodoEditForm = () => {
   }
 
   const handleChange = (event) => {
+    //this is a function that handles the input change for all fields except the file input and due date.
     if (event.target.name === "assigned") {
       setTodoData({
         ...todoData,
