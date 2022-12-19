@@ -14,6 +14,8 @@ import { TodosAssignedPage } from './pages/todo/TodosAssignedPage';
 import { TodoEditForm } from './pages/todo/TodoEditForm';
 import { TodosCreatedPage } from './pages/todo/TodosCreatedPage.js';
 import { ProfilePage } from './pages/profiles/ProfilePage';
+import { TodosPage } from './pages/todo/TodosPage';
+import { NotFound } from './pages/NotFound';
 
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
@@ -40,7 +42,7 @@ function App() {
         <NavBar />
           <Container className="Main">
             <Routes>
-              <Route exact="true" path="/" element={<TodosAssignedPage />} />
+              <Route exact="true" path="/" element={<TodosPage />} />
               <Route exact="true" path='/profiles/:id' element={<ProfilePage />} />
               <Route exact="true" path="/created" element={<TodosCreatedPage />} />
               <Route exact="true" path="/create" element={<TodoCreateForm />} />
@@ -51,6 +53,7 @@ function App() {
               <Route exact="true" path="/signin" element={<SignInForm />} />
               <Route exact="true" path="/signout" element={<h1>Sign out</h1>} />
               <Route exact="true" path="/todo/:id" element={<TodoPage />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </Container>
         </div>
