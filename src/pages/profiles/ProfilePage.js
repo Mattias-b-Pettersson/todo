@@ -19,7 +19,7 @@ export const ProfilePage = () => {
     const [profile, setProfile] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false);
 
-    const {content, created_at, image, is_owner_or_assigned, name, owner} = profile;
+    const {content, created_at, image, is_owner, name, owner} = profile;
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -43,7 +43,7 @@ export const ProfilePage = () => {
                     <div className={`${styles.avatar} bg-white rounded-circle`}>
                         <Avatar src={image} height="100"></Avatar>
                     </div>
-                    {is_owner_or_assigned ? (<span className='d-flex ms-auto'><EllipsisProfileButton id={profile?.id} className="mt-2" setShowEditUserNameForm={setShowEditUserNameForm}/></span>) : ("")}
+                    {is_owner ? (<span className='d-flex ms-auto'><EllipsisProfileButton id={profile?.id} className="mt-2" setShowEditUserNameForm={setShowEditUserNameForm}/></span>) : ("")}
                     {showEditUserNameForm ? (<UsernameForm setShowEditUserNameForm={setShowEditUserNameForm} profile={profile} setProfile={setProfile}/>) : (<Card.Title className={styles.underAvatar}>{owner}</Card.Title>)}
                     {name && <Card.Subtitle className="mb-2 text-muted">{name}</Card.Subtitle>}
                     <Card.Text className='mb-2 mt-3 '>About me:</Card.Text>
