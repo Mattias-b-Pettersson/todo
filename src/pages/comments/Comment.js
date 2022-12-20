@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Card, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
 import { EllipsisButton } from '../../components/EllipsisButton'
@@ -32,8 +33,10 @@ export const Comment = ({ id, content, updated_at, created_at, profile_image, ow
     <Card fluid="true" className='my-3'>
         <Card.Body className='border-bottom'>
             <Col fluid className="d-flex">
-                <div className='align-self-center'>
-                <Avatar src={profile_image} text={owner} />      
+                <div className='align-self-center mb-2'>
+                    <Link to={`/profiles/${id}`}>
+                        <Avatar src={profile_image} text={owner} />
+                    </Link>      
                 </div>     
                 <div className='ms-auto align-self-center text-muted'>
                     Created: {created_at}
