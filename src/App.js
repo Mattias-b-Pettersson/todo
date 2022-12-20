@@ -29,7 +29,7 @@ function App() {
       const { data } = await axios.get("dj-rest-auth/user/")
       setCurrentUser(data)
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
 
