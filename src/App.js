@@ -22,7 +22,7 @@ export const SetCurrentUserContext = createContext();
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null);
+  const [, setCurrentUser] = useState(null);
 
   const handleMount = async () => {
     try {

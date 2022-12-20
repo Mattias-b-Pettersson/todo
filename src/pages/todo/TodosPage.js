@@ -15,7 +15,6 @@ import { fetchMoreData } from '../../utils/utils';
 export default function TodosPage () {
     const [todos, setTodos] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false)
-    const [assigned, setAssigne] = useState("created")
     const currentUser = useCurrentUser();
     const { pathname } = useLocation();
     const [searchFields, setSearchFields] = useState({
@@ -52,7 +51,7 @@ export default function TodosPage () {
             fetchTodos();
         }
 
-    }, [currentUser, pathname, searchFields])
+    }, [currentUser, pathname, search, ordering, status, priority, assignedOrCreated, searchFields])
 
     useEffect(() => {
         // Sets the assignedOrCreated field to the current user's profile id
