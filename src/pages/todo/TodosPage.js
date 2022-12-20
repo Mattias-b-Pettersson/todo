@@ -111,7 +111,8 @@ export const TodosPage = () => {
                                 </Row>
                             </Form>
                             {hasLoaded ? (
-                                <Card.Body>
+                                todos.results.length ? (
+                                    <Card.Body>
                                     <Row>
                                         <InfiniteScroll
                                             children={
@@ -124,6 +125,8 @@ export const TodosPage = () => {
                                         />
                                     </Row>
                                 </Card.Body>
+                                ) : (<h2 className='text-center my-4'>No todos found</h2>)
+                                
                             ) : (
                                 <img src={loading} height={102} width={102} alt="loading..." className='mx-auto my-5' />
                             )}
