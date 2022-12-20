@@ -22,7 +22,7 @@ export const Todo = (props) => {
         owner,
         priority,
         profile_id,
-        status,
+        status_prettified,
         title,
         updated_at,
         setTodo,
@@ -66,7 +66,7 @@ export const Todo = (props) => {
                 <Row className="mx-auto">
                     <Col className="mx-auto">
                         <p className='mb-0'><FontAwesomeIcon icon={faExclamationTriangle} /> Priority: {priority}</p>
-                        <p className='my-1'><FontAwesomeIcon icon={faClock} /> status: {status}</p>
+                        <p className='my-1'><FontAwesomeIcon icon={faClock} /> status: {status_prettified}</p>
                         {due_date_has_passed ? (<p className='mt-0 d-inline rounded p-1 bg-danger'><FontAwesomeIcon icon={faHourglassHalf}  /> Due Date: {due_date}</p>) : (<p className='mt-0 p-2'><FontAwesomeIcon icon={faHourglassHalf} /> Due Date: {due_date}</p>)}
                     </Col>
                 </Row>
