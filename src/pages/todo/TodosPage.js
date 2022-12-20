@@ -153,7 +153,7 @@ export default function TodosPage () {
                     ) : (
                         <Card>
                             <h1 className='mt-4'>Please sign in or create an account</h1>
-                            <img src={singInImage}></img>
+                            <img src={singInImage} alt="Sign in"></img>
                         </Card>
                         
                     )}
