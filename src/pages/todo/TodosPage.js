@@ -12,7 +12,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 
 
-export const TodosPage = () => {
+export default function TodosPage () {
     const [todos, setTodos] = useState({ results: [] })
     const [hasLoaded, setHasLoaded] = useState(false)
     const [assigned, setAssigne] = useState("created")

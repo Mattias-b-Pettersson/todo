@@ -12,7 +12,7 @@ import { TodoCreateForm } from './pages/todo/TodoCreateForm';
 import { TodoPage } from './pages/todo/TodoPage';
 import { TodoEditForm } from './pages/todo/TodoEditForm';
 import { ProfilePage } from './pages/profiles/ProfilePage';
-import { TodosPage } from './pages/todo/TodosPage';
+import TodosPage from './pages/todo/TodosPage';
 import { NotFound } from './pages/NotFound';
 import UserPasswordForm from './pages/profiles/userPassworForm';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
