@@ -205,7 +205,7 @@ export const TodoCreateForm = () => {
                   <Form.Label className="fs-3 p-0">Due date:</Form.Label>
                 </Col>
                 <Col md={8} className="pt-1 px-auto">
-                  <Form.Control type="date" name="duedate" placeholder="Due date" onChange={(event) => setDueDate(event.target.value)} className="d-flex align-self-center"/>
+                  <Form.Control type="date" name="duedate" placeholder="Due date" onChange={(event) => setDueDate(event.target.value)} className="d-flex align-self-center" required/>
                 </Col>
               </Row>
 
