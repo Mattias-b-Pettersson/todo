@@ -8,13 +8,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from "../../styles/Todo.module.css"
 import { EllipsisButton } from '../../components/EllipsisButton';
 import { axiosRes } from '../../api/axiosDefaults';
+import Avatar from '../../components/Avatar';
 
 export const Todo = (props) => {
     
     const navigate = useNavigate();
     const {
         id,
-        assigned_username,
+        assigned_username_id_img,
         content,
         file,
         is_owner_or_assigned,
@@ -77,10 +78,10 @@ export const Todo = (props) => {
                         </>}
                     </Col>
                 </Row>
-                {assigned_username &&
+                {assigned_username_id_img &&
                     <Row>
                         <Col xs={10} className="d-inline-block mt-3 mx-auto ">
-                            <p className="mb-1"><FontAwesomeIcon icon={faUserGroup} /> Assigned: {assigned_username}</p>
+                            <p className="mb-1"><FontAwesomeIcon icon={faUserGroup} /> Assigned: </p>{assigned_username_id_img.map(assigned => <div className="d-inline mx-1" key={assigned[2]}><Link className={styles.NavLink} to={`/profiles/${assigned[2]}`}><Avatar src={assigned[1]} text={assigned[0]} height="30"/></Link></div>)}
                         </Col>
                     </Row>
                 }

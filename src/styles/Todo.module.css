@@ -12,3 +12,19 @@
 .cardClass p {
     color:black;
 }
+
+.NavLink:hover {
+    color: #7A26C1;
+    transition: color ease-in-out 0.3s;
+}
+
+.NavLink {
+    font-size: 20px;
+    text-decoration: none;
+    color: #504A4B;
+    margin-right: 20px;
+}
+
+.NavLink img {
+    margin-right: 5px;
+}
