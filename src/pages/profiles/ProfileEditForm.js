@@ -18,7 +18,7 @@ const ProfileEditForm = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
   const { id } = useParams();
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const imageFile = useRef();
 
   const [profileData, setProfileData] = useState({
@@ -38,7 +38,7 @@ const ProfileEditForm = () => {
           const { name, content, image } = data;
           setProfileData({ name, content, image });
         } catch (err) {
-          console.log(err);
+          // console.log(err);
           navigate("/");
         }
       } else {
@@ -74,7 +74,7 @@ const ProfileEditForm = () => {
       }));
       navigate(-1);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setErrors(err.response?.data);
     }
   };
