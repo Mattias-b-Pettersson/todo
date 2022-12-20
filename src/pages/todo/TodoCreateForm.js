@@ -9,9 +9,11 @@ import { axiosReq } from '../../api/axiosDefaults';
 import loading from "../../assets/loading.gif"
 import { useRedirect } from '../../hooks/useRedirect';
 import styles from "../../styles/TodoCreateEditForm.module.css"
+import { useNavigate } from 'react-router-dom';
 
 
 export const TodoCreateForm = () => {
+  const navigate = useNavigate();
   useRedirect("loggedOut")
   const [dueDate, setDueDate] = useState(new Date());
   const [profiles, setProfiles] = useState({});
@@ -92,6 +94,7 @@ export const TodoCreateForm = () => {
 
     try {
       await axiosReq.post("/todos/", formData)
+      navigate("/")
     } catch (error) {
       // console.log(error)
     }
