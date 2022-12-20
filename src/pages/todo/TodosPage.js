@@ -42,7 +42,7 @@ export const TodosPage = () => {
         setHasLoaded(false);
         fetchTodos();
 
-    }, [currentUser, pathname, searchFields])
+    }, [currentUser, pathname, searchFields, currentUser])
 
     const handleChange = (e) => {
         // handles the change of the search and ordering fields
@@ -103,8 +103,8 @@ export const TodosPage = () => {
                                 <Row>
                                     <Col>
                                     <Form.Control name="assignedOrCreated" as="select" onChange={handleChange} value={assignedOrCreated} className='mt-2'>
-                                            <option value={`&assigned=${currentUser.profile_id}`}>Assigned to you</option>
-                                            <option value={`&created=${currentUser.profile_id}`}>Created by you</option>
+                                            <option value={`&assigned=${currentUser?.profile_id}`}>Assigned to you</option>
+                                            <option value={`&created=${currentUser?.profile_id}`}>Created by you</option>
 
                                         </Form.Control>
                                     </Col>
