@@ -40,6 +40,10 @@ const NavBar = () => {
         }
     }
 
+    const handleProfileButton = () => {
+        navigate(`/profiles/${currentUser?.profile_id}`);
+    }
+
     const CustomToggleDropDown = React.forwardRef(({ children, onClick }, ref) => (
         <Button
             variant="link"
@@ -64,19 +68,16 @@ const NavBar = () => {
                         <Dropdown.Toggle as={CustomToggleDropDown} />
                         <Dropdown.Menu>
 
-                            <Dropdown.Item>
-                                <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.profile_id}`}>
+                            <Dropdown.Item className={styles.NavLink} onClick={handleProfileButton}>
                                     <FontAwesomeIcon icon={faUser} />
                                     Profile
-                                </NavLink>
                             </Dropdown.Item>
 
                             <Dropdown.Divider />
 
-                            <Dropdown.Item>
-                                <NavLink className={styles.NavLink} onClick={handleSignOut}><FontAwesomeIcon icon={faRightFromBracket} />
-                                    Sign out
-                                </NavLink>
+                            <Dropdown.Item className={styles.NavLink} onClick={handleSignOut}>
+                                <FontAwesomeIcon icon={faRightFromBracket} />
+                                Sign out
                             </Dropdown.Item>
 
                         </Dropdown.Menu>
