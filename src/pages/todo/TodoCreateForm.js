@@ -58,7 +58,6 @@ export const TodoCreateForm = () => {
         [event.target.name]: [].slice.call(event.target.selectedOptions).map(item => item.value)
 
       })
-      console.log(assigned)
     } else {
       setTodoData({
         ...todoData,
@@ -85,15 +84,11 @@ export const TodoCreateForm = () => {
       formData.append("file", fileInput.current.files[0])
     }
     
-   
-    for (const value of formData.values()) {
-      console.log(value);
-    }
 
     try {
       await axiosReq.post("/todos/", formData)
     } catch (error) {
-      console.log(error)
+      // console.log(error)
     }
   }
 
