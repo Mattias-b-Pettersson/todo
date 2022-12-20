@@ -1,5 +1,3 @@
-![Home page](/readme-images/home-page.png)
-
 # TODO
 
 Todo is a todo app that is aimed at companies or groups. With this app one is able to assign todo tasks to another and also leave comments on it
@@ -114,13 +112,51 @@ To deploy the project to heroku, do the following
 2. If your site is on Github, in the Heroku app go in to "Deploy" and connect your github account and project.
 Lastly scroll down and click on "Deploy Branch" and make sure "main" is selected.
 
+# Project Goals
+The project goals for this project were to create a todo page for a company so that they can keep tack on what they need to do, where it was also possible to assign the task to someone else. 
+
+
 # UX design work
 
 The design were made with simpicity in mind. I designed this wireframes on [creatly](app.creately.com) to have a get a visual on my vision i had in mind.
 ![Wirefram image](/readme-images/wireframe.png)
 
-# Project Goals
-The project goals for this project were to create a todo page for a company so that they can keep tack on what they need to do, where it was also possible to assign the task to someone else. 
+# User stories
+These are the stories i worked after when i made the application
+
+## Navigation & Authentication
+- Navigation: As a user I can view a navbar from every page so that I can navigate easily between pages
+- Routing: As a user I can navigate through pages quickly so that I can view content seamlessly without page refresh
+- Authentication - Sign up: As a user I can create a new account so that I can access all the features for signed up users
+- Authentication - Sign in: As a user I can sign in to the app so that I can access functionality for logged in users
+- Authentication - Logged in Status: As a user I can tell if I am logged in or not so that I can log in if I need to
+- Authentication - Refreshing access tokens: As a user I can maintain my logged-in status until I choose to log out so that my user experience is not compromised
+- Navigation: Conditional rendering - As a logged out user I can see sign in and sign up options so that I can sign in/sign up
+- Avatar: As a user I can view user's avatars so that I can easily identify users of the application
+
+## The Posts Page
+- View most recent posts: As a user I can view all the most recent,
+- todos ordered by most recently created first so that I am up to date with the newest content
+- As a user, I can search for todos with keywords, so that I can find the Todos I want to find easily.
+- View assigned todo: As a logged in user I can view todos filtered by “assigned to me” so that I can easily see the todos assigned to me
+- View created todos: As a logged in user I can view todos filtered by “Created by me” so that I can easily see the todos created by me
+- Filter: As a user i can filter todos by priority or status so that i can easly se the most urgent todos
+- Infinite scroll: As a user I can keep scrolling through todos on the site, that are loaded for me automatically so that I don't have to click on "next page" etc
+- Post page: As a user I can view the todo page so that I can read the comments about the todo
+- Edit post: As a Todo owner I can edit my todo so that I can make corrections or update my Todo after it was created
+
+## Comments
+- Create a comment: As a logged in user I can add comments to a Todo so that I write work notes and/or comment to other assigned. 
+- Comment date: As a user I can see how long ago a comment was made so that I know how old a comment is
+- View comments: As a user I can read comments on Todos so that I can read what other users has done with the task
+- Delete comments: As an owner of a comment I can delete my comment so that I can control removal of my comment from the application
+- Edit a comment: As an owner of a comment I can edit my comment so that I can fix or update my existing comment
+
+## The Profile Page
+- Profile page: As a user I can view other users profiles so that I can learn more about them
+- Edit profile: As a logged in user I can edit my profile so that I can change my profile picture, bio and name
+- Update username and password: As a logged in user I can update my username and password so that I can change my display name and keep my profile secure
+
 
 # Credits
 
