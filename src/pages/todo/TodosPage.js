@@ -10,6 +10,7 @@ import loading from "../../assets/loading.gif"
 import { useLocation } from 'react-router-dom';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
+import singInImage from "../../assets/please-sign-in.jpg"
 
 
 export default function TodosPage () {
@@ -150,7 +151,11 @@ export default function TodosPage () {
                             )}
                         </Card>
                     ) : (
-                        <p>Please sign in or create an account</p>
+                        <Card>
+                            <h1 className='mt-4'>Please sign in or create an account</h1>
+                            <img src={singInImage}></img>
+                        </Card>
+                        
                     )}
 
                 </Row>
