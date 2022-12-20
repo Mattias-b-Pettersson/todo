@@ -17,7 +17,7 @@ export const Todo = (props) => {
         assigned_username,
         content,
         file,
-        is_owner,
+        is_owner_or_assigned,
         owner,
         priority,
         profile_id,
@@ -57,7 +57,7 @@ export const Todo = (props) => {
                 <Link to={`/todo/${id}`} className={`mx-auto text-decoration-none`}>
                 <Card.Title><p className='fs-3'>{title}</p></Card.Title>
                 </Link>
-                {is_owner && <EllipsisButton isType="todo" id={id} handleDelete={handleDelete} handleEdit={handleEdit} />}
+                {is_owner_or_assigned && <EllipsisButton isType="todo" id={id} handleDelete={handleDelete} handleEdit={handleEdit} />}
             </Card.Header>
             
             <Card.Body>
