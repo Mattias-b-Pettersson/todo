@@ -23,7 +23,7 @@ export const TodosPage = () => {
         ordering: "",
         status: "",
         priority: "",
-        assignedOrCreated: ""
+        assignedOrCreated: `&assigned=${currentUser?.profile_id}`
     });
     const { search, ordering, status, priority, assignedOrCreated } = searchFields;
 
@@ -31,21 +31,37 @@ export const TodosPage = () => {
     useEffect(() => {
         // Fetches all todos that are created by the current user and sets the state to todos with 
         // data that is returned from the API and sets hasLoaded to true so that the loading gif is not shown anymore
-        const fetchTodos = async () => {
-            try {
-                if (currentUser?.profile_id) {
-                    const { data } = await axiosReq.get(`/todos/?owner=&search=${search}&ordering=${ordering}&status=${status}&priority=${priority}${assignedOrCreated}`)
-                    setTodos(data)
-                    setHasLoaded(true)
-                }
-            } catch (error) {
-                // console.log(error)
-            }
-        }
-        setHasLoaded(false);
-        fetchTodos();
 
-    }, [currentUser, pathname, searchFields, currentUser])
+        
+        const fetchTodos = async () => {
+                try {
+                        const { data } = await axiosReq.get(`/todos/?owner=&search=${search}&ordering=${ordering}&status=${status}&priority=${priority}${assignedOrCreated}`)
+                        setTodos(data)
+                        setHasLoaded(true)
+                } catch (error) {
+                    // console.log(error)
+                }
+        }
+
+        
+        setHasLoaded(false);
+
+        // will still send 1 request to the API if the profile_id is undefined but can't see a way around this.
+        // If this if statement is not here then the fetchTodos function will be called 3 times on mount instead of 1.
+        if (currentUser?.profile_id) {
+            fetchTodos();
+        }
+
+    }, [currentUser, pathname, searchFields])
+
+    useEffect(() => {
+        // Sets the assignedOrCreated field to the current user's profile id
+        setSearchFields({
+            ...searchFields,
+            assignedOrCreated: `&assigned=${currentUser?.profile_id}`
+        })
+    }, [currentUser?.profile_id])
+
 
     const handleChange = (e) => {
         // handles the change of the search and ordering fields
