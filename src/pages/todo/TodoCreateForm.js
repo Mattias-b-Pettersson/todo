@@ -79,7 +79,7 @@ export const TodoCreateForm = () => {
     formData.append("title", title)
     formData.append("content", content)
     formData.append("priority", priority)
-    formData.append("assigned", assigned)
+    assigned.map(item => formData.append("assigned", item))
     formData.append("status", status)
     formData.append("due_date", `${dueDate}T00:00`)
 
