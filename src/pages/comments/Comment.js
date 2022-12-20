@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Card, Col } from 'react-bootstrap'
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import { Link } from 'react-router-dom'
 import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
@@ -16,7 +17,7 @@ export const Comment = ({ id, content, updated_at, created_at, profile_image, ow
         try {
             await axiosRes.delete(`/comment/${id}/`)
         } catch (error) {
-            console.log(error)
+            // console.log(error)
         }}
         deleteItem();
         setComments((prevComments) => ({

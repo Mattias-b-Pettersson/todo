@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+
+import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+
 import { axiosRes } from "../../api/axiosDefaults";
 
 function CommentEditForm({ id, content, setShowEditForm, setComments }) {
@@ -32,7 +34,7 @@ function CommentEditForm({ id, content, setShowEditForm, setComments }) {
       }));
       setShowEditForm(false);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

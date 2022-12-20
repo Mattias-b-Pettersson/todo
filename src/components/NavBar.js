@@ -1,11 +1,17 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus, faPenToSquare, faUser, faUserPlus, faBars,  faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import React, { useState } from 'react';
-import { Button, Dropdown, Image } from 'react-bootstrap';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
+import Image from "react-bootstrap/Image";
+
 import styles from "../styles/NavBar.module.css";
+
+
 import Avatar from "./Avatar";
 import axios from 'axios';
 import logo from "../assets/logo.png";

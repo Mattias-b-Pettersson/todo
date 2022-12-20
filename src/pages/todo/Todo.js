@@ -1,5 +1,7 @@
 import React from 'react'
-import { Card, Col, Row } from 'react-bootstrap';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import { Link, useNavigate } from 'react-router-dom';
 import { faFile, faClipboard, faUserGroup, faHourglassHalf, faClock, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

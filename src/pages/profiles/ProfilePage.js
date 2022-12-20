@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Card, Col } from 'react-bootstrap';
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 import loading from "../../assets/loading.gif"

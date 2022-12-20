@@ -1,7 +1,11 @@
 import React from 'react'
 import { faEllipsisV, faFilePen, faTrashCan, faKey, faEdit, faIdCard } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Button, Dropdown } from 'react-bootstrap';
+
+import Button from "react-bootstrap/Button";
+import Dropdown from "react-bootstrap/Dropdown";
+
+
 import styles from "../styles/EllipsisButton.module.css"
 import { useNavigate } from 'react-router-dom';
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import { Col, Card } from 'react-bootstrap'
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
 import notFound from "../assets/404.jpg"
 
 export const NotFound = () => {
