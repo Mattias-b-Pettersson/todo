@@ -7,7 +7,7 @@ import Avatar from '../../components/Avatar'
 import { EllipsisButton } from '../../components/EllipsisButton'
 import CommentEditForm from "./CommentEditForm";
 
-export const Comment = ({ id, content, updated_at, created_at, profile_image, owner, is_owner_or_assigned, setComments, comments, profile_id }) => {
+export const Comment = ({ id, content, updated_at, created_at, profile_image, owner, is_owner, setComments, comments, profile_id }) => {
     const [showEditForm, setShowEditForm] = useState(false);
 
 
@@ -42,7 +42,7 @@ export const Comment = ({ id, content, updated_at, created_at, profile_image, ow
                 <div className='ms-auto align-self-center text-muted'>
                     Created: {created_at}
                 </div>
-                {is_owner_or_assigned && !showEditForm &&
+                {is_owner && !showEditForm &&
                     <EllipsisButton isType="comment" id={id} handleDelete={handleDelete} handleEdit={handleEdit} />
                 }
             </Col>
