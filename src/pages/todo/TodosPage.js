@@ -39,7 +39,7 @@ export default function TodosPage () {
                         setTodos(data)
                         setHasLoaded(true)
                 } catch (error) {
-                    // console.log(error)
+                    
                 }
         }
 

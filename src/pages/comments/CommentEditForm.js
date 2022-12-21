@@ -34,7 +34,7 @@ function CommentEditForm({ id, content, setShowEditForm, setComments }) {
       }));
       setShowEditForm(false);
     } catch (err) {
-      // console.log(err);
+      
     }
   };
 

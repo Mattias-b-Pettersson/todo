@@ -96,7 +96,7 @@ export const TodoCreateForm = () => {
       await axiosReq.post("/todos/", formData)
       navigate("/")
     } catch (error) {
-      // console.log(error)
+      
     }
   }
 

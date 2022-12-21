@@ -17,7 +17,7 @@ export const Comment = ({ id, content, updated_at, created_at, profile_image, ow
         try {
             await axiosRes.delete(`/comment/${id}/`)
         } catch (error) {
-            // console.log(error)
+            
         }}
         deleteItem();
         setComments((prevComments) => ({
