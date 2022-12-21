@@ -1,6 +1,6 @@
 # TODO
 
-Todo is a todo app that is aimed at companies or groups. With this app one is able to assign todo tasks to another and also leave comments on it
+Todo is a todo app that is aimed at companies or groups. With this app one is able to assign todo tasks to another and also leave comments on it.
 
 # Features
 
@@ -73,7 +73,6 @@ At the profile pages a user can read more about other users and change their own
 
 - I have also made some automated tests, it tests the navbar and profile page.
 
-
 ## Solved Bugs
 
 When deploying the application to heroku there were multiple bugs that arose.
@@ -113,7 +112,12 @@ To deploy the project to heroku, do the following
 Lastly scroll down and click on "Deploy Branch" and make sure "main" is selected.
 
 # Project Goals
+
 The project goals for this project were to create a todo page for a company so that they can keep tack on what they need to do, where it was also possible to assign the task to someone else. 
+
+# Created using react
+
+This project was created using react, and during development i noticed the how easy it was to make pages. I reused components multiple times during the project. For example, the Avatar component is all over the place, and so is the todo component.
 
 
 # UX design work
