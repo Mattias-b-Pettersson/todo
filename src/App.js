@@ -42,15 +42,15 @@ function App() {
         <NavBar />
           <Container className="Main">
             <Routes>
-              <Route exact="true" path="/" element={<TodosPage />} />
-              <Route exact="true" path='/profiles/:id' element={<ProfilePage />} />
-              <Route exact="true" path="/create" element={<TodoCreateForm />} />
-              <Route exact="true" path="/todo/:id/edit" element={<TodoEditForm />} />
-              <Route exact="true" path="/signup" element={<SignUpForm />} />
-              <Route exact="true" path="/signin" element={<SignInForm />} />
-              <Route exact="true" path="/todo/:id" element={<TodoPage />} />
-              <Route exact="true" path="/profiles/:id/edit/password"  element={<UserPasswordForm />}/>
-              <Route exact="true" path="/profiles/:id/edit"  element={<ProfileEditForm />} />
+              <Route exact="true" path="/todo/" element={<TodosPage />} />
+              <Route exact="true" path='/todo/profiles/:id' element={<ProfilePage />} />
+              <Route exact="true" path="/todo/create" element={<TodoCreateForm />} />
+              <Route exact="true" path="/todo/todo/:id/edit" element={<TodoEditForm />} />
+              <Route exact="true" path="/todo/signup" element={<SignUpForm />} />
+              <Route exact="true" path="/todo/signin" element={<SignInForm />} />
+              <Route exact="true" path="/todo/todo/:id" element={<TodoPage />} />
+              <Route exact="true" path="/todo/profiles/:id/edit/password"  element={<UserPasswordForm />}/>
+              <Route exact="true" path="/todo/profiles/:id/edit"  element={<ProfileEditForm />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Container>
